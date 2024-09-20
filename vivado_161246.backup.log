@@ -1,0 +1,64 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Wed Mar  9 15:20:37 2022
+# Process ID: 161246
+# Current directory: /home/hank/vivado-risc-v
+# Command line: vivado
+# Log file: /home/hank/vivado-risc-v/vivado.log
+# Journal file: /home/hank/vivado-risc-v/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/hank/vivado-risc-v/workspace/Rocket64b1gem/vivado-nexys-video-riscv/nexys-video-riscv.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2021.1/data/ip'.
+INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+open_project: Time (s): cpu = 00:00:17 ; elapsed = 00:00:07 . Memory (MB): peak = 7746.375 ; gain = 131.113 ; free physical = 5980 ; free virtual = 21094
+update_compile_order -fileset sources_1
+set_property AUTO_INCREMENTAL_CHECKPOINT 1 [get_runs impl_1]
+set_property AUTO_INCREMENTAL_CHECKPOINT.DIRECTORY /home/hank/vivado-risc-v/workspace/Rocket64b1gem/vivado-nexys-video-riscv/nexys-video-riscv.srcs/utils_1/imports/impl_1 [get_runs impl_1]
+set_property incremental_checkpoint.directive RuntimeOptimized [get_runs impl_1]
+open_run impl_1
+INFO: [Device 21-403] Loading part xc7a200tsbg484-1
+Netlist sorting complete. Time (s): cpu = 00:00:00.88 ; elapsed = 00:00:00.86 . Memory (MB): peak = 8080.785 ; gain = 0.000 ; free physical = 3436 ; free virtual = 18557
+INFO: [Netlist 29-17] Analyzing 11590 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2021.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Constraints 18-5170] The checkpoint was created with non-default parameter values which do not match the current Vivado settings.  Mismatching parameters are:
+  general.maxThreads
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 9149.656 ; gain = 177.906 ; free physical = 2138 ; free virtual = 17288
+Restored from archive | CPU: 5.800000 secs | Memory: 198.659653 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 9149.656 ; gain = 177.906 ; free physical = 2138 ; free virtual = 17288
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 9149.656 ; gain = 0.000 ; free physical = 2173 ; free virtual = 17322
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1855 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 6 instances
+  IOBUFDS_DIFF_OUT_INTERMDISABLE => IOBUFDS_DIFF_OUT_INTERMDISABLE (IBUFDS_INTERMDISABLE_INT(x2), INV, OBUFTDS(x2)): 2 instances
+  IOBUF_INTERMDISABLE => IOBUF_INTERMDISABLE (IBUF_INTERMDISABLE, OBUFT): 16 instances
+  OBUFDS => OBUFDS_DUAL_BUF (INV, OBUFDS(x2)): 1 instance 
+  RAM128X1D => RAM128X1D (MUXF7(x2), RAMD64E(x4)): 4 instances
+  RAM16X1D => RAM32X1D (RAMD32(x2)): 334 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 1353 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 50 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 87 instances
+  RAM64X1D => RAM64X1D (RAMD64E(x2)): 1 instance 
+  SRLC32E => SRL16E: 1 instance 
+
+open_run: Time (s): cpu = 00:00:36 ; elapsed = 00:00:28 . Memory (MB): peak = 9318.359 ; gain = 1237.574 ; free physical = 2033 ; free virtual = 17183
+open_report: Time (s): cpu = 00:00:26 ; elapsed = 00:00:06 . Memory (MB): peak = 9617.695 ; gain = 293.383 ; free physical = 1661 ; free virtual = 16827
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+close_design
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed Mar  9 15:25:43 2022...

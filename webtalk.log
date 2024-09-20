@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Webtalk v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Fri Mar 11 14:26:36 2022
+# Process ID: 506431
+# Current directory: /home/hank/vivado-risc-v
+# Command line: wbtcv -mode batch -source /home/hank/workspace/vivado-risc-v/workspace/Rocket64b2gem/vivado-genesys2-riscv/genesys2-riscv.hw/webtalk/labtool_webtalk.tcl -notrace
+# Log file: /home/hank/vivado-risc-v/webtalk.log
+# Journal file: /home/hank/vivado-risc-v/webtalk.jou
+#-----------------------------------------------------------
+source /home/hank/workspace/vivado-risc-v/workspace/Rocket64b2gem/vivado-genesys2-riscv/genesys2-riscv.hw/webtalk/labtool_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Fri Mar 11 14:26:36 2022...

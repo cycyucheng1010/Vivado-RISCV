@@ -1,0 +1,41 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Thu Mar 10 12:12:18 2022
+# Process ID: 238846
+# Current directory: /home/hank/vivado-risc-v
+# Command line: vivado
+# Log file: /home/hank/vivado-risc-v/vivado.log
+# Journal file: /home/hank/vivado-risc-v/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/hank/vivado-risc-v/workspace/Rocket64b2gem/vivado-genesys2-riscv/genesys2-riscv.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2021.1/data/ip'.
+INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+open_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:06 . Memory (MB): peak = 7754.383 ; gain = 139.121 ; free physical = 6420 ; free virtual = 25294
+update_compile_order -fileset sources_1
+open_bd_design {/home/hank/vivado-risc-v/workspace/Rocket64b2gem/vivado-genesys2-riscv/genesys2-riscv.srcs/sources_1/bd/riscv/riscv.bd}
+Reading block design file </home/hank/vivado-risc-v/workspace/Rocket64b2gem/vivado-genesys2-riscv/genesys2-riscv.srcs/sources_1/bd/riscv/riscv.bd>...
+Adding component instance block -- xilinx.com:ip:smartconnect:1.0 - axi_smc_1
+Adding component instance block -- xilinx.com:module_ref:mem_reset_control:1.0 - mem_reset_control_0
+Adding component instance block -- xilinx.com:ip:mig_7series:4.2 - mig_7series_0
+Adding component instance block -- xilinx.com:module_ref:ethernet:1.0 - Ethernet
+Adding component instance block -- xilinx.com:module_ref:sdc_controller:1.0 - SD
+Adding component instance block -- xilinx.com:module_ref:uart:1.0 - UART
+Adding component instance block -- xilinx.com:ip:xadc_wiz:3.3 - XADC
+Adding component instance block -- xilinx.com:module_ref:ethernet_genesys2:1.0 - ethernet_stream_0
+Adding component instance block -- xilinx.com:ip:smartconnect:1.0 - io_axi_m
+Adding component instance block -- xilinx.com:ip:smartconnect:1.0 - io_axi_s
+Adding component instance block -- xilinx.com:ip:xlconcat:2.1 - xlconcat_0
+Adding component instance block -- xilinx.com:module_ref:Rocket64b2gem:1.0 - RocketChip
+Adding component instance block -- xilinx.com:ip:clk_wiz:6.0 - clk_wiz_0
+Adding component instance block -- xilinx.com:ip:util_ds_buf:2.2 - util_ds_buf_0
+Adding component instance block -- xilinx.com:ip:util_vector_logic:2.0 - util_vector_logic_0
+Successfully read diagram <riscv> from block design file </home/hank/vivado-risc-v/workspace/Rocket64b2gem/vivado-genesys2-riscv/genesys2-riscv.srcs/sources_1/bd/riscv/riscv.bd>
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Mar 10 12:17:47 2022...

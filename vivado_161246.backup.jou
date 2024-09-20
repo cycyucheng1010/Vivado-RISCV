@@ -1,0 +1,19 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Wed Mar  9 15:20:37 2022
+# Process ID: 161246
+# Current directory: /home/hank/vivado-risc-v
+# Command line: vivado
+# Log file: /home/hank/vivado-risc-v/vivado.log
+# Journal file: /home/hank/vivado-risc-v/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/hank/vivado-risc-v/workspace/Rocket64b1gem/vivado-nexys-video-riscv/nexys-video-riscv.xpr
+update_compile_order -fileset sources_1
+set_property AUTO_INCREMENTAL_CHECKPOINT 1 [get_runs impl_1]
+set_property AUTO_INCREMENTAL_CHECKPOINT.DIRECTORY /home/hank/vivado-risc-v/workspace/Rocket64b1gem/vivado-nexys-video-riscv/nexys-video-riscv.srcs/utils_1/imports/impl_1 [get_runs impl_1]
+set_property incremental_checkpoint.directive RuntimeOptimized [get_runs impl_1]
+open_run impl_1
+close_design

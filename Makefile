@@ -94,7 +94,7 @@ U_BOOT_SRC = $(wildcard patches/u-boot/*/*) \
   patches/u-boot.patch
 
 u-boot/configs/vivado_riscv64_defconfig: patches/u-boot/vivado_riscv64_defconfig Makefile
-	cp patches/u-boot/vivado_riscv64_defconfig u-boot/configs
+	cp patches/u-boot/vivado_riscv64_defconfig u-boot/configs 
 ifeq ($(ROOTFS),NFS)
 	echo 'CONFIG_USE_BOOTARGS=y' >>u-boot/configs/vivado_riscv64_defconfig
 	echo 'CONFIG_BOOTCOMMAND="booti $${kernel_addr_r} - $${fdt_addr}"' >>u-boot/configs/vivado_riscv64_defconfig
@@ -165,8 +165,8 @@ else
   MEMORY_ADDR_RANGE32 = 0x80000000 0x80000000
   MEMORY_ADDR_RANGE64 = 0x0 0x80000000 $(shell echo - | awk '{printf "0x%x", $(MEMORY_SIZE) / 0x100000000}') $(shell echo - | awk '{printf "0x%x", $(MEMORY_SIZE) % 0x100000000}')
 endif
-
-SBT := java -Xmx12G -Xss8M $(JAVA_OPTIONS) -Dsbt.io.virtual=false -Dsbt.server.autostart=false -jar $(realpath rocket-chip/sbt-launch.jar)
+#default jvm 12G 8M
+SBT := java -Xmx24G -Xss8M $(JAVA_OPTIONS) -Dsbt.io.virtual=false -Dsbt.server.autostart=false -jar $(realpath rocket-chip/sbt-launch.jar)
 
 CHISEL_SRC_DIRS = \
   src/main \
@@ -174,8 +174,10 @@ CHISEL_SRC_DIRS = \
   generators/gemmini/src/main \
   generators/riscv-boom/src/main \
   generators/sifive-cache/design/craft \
-  generators/testchipip/src/main
+  generators/testchipip/src/main \
+  generators/fft-generator/src/main \ 
 
+  
 CHISEL_SRC := $(foreach path, $(CHISEL_SRC_DIRS), $(shell test -d $(path) && find $(path) -iname "*.scala"))
 FIRRTL = java -Xmx12G -Xss8M $(JAVA_OPTIONS) -cp target/scala-2.12/classes:rocket-chip/rocketchip.jar firrtl.stage.FirrtlMain
 

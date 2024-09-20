@@ -9,6 +9,7 @@ import freechips.rocketchip.devices.tilelink._
 import freechips.rocketchip.tile.{BuildRoCC, OpcodeSet}
 import freechips.rocketchip.util.DontTouch
 import freechips.rocketchip.system._
+import fftgenerator._
 
 class RocketSystem(implicit p: Parameters) extends RocketSubsystem
     with HasAsyncExtInterrupts
@@ -212,17 +213,24 @@ class Rocket64m2gem extends Config(
   new RocketBaseConfig)
 
 class Rocket64b1gem extends Config(
-  new WithGemmini(2, 64)  ++
+  new WithGemmini(4, 64)  ++
   new WithInclusiveCache  ++
   new WithNBreakpoints(8) ++
   new WithNBigCores(1)    ++
   new RocketBaseConfig)
 
 class Rocket64b2gem extends Config(
+  new WithGemmini(4, 64)  ++
+  new WithInclusiveCache  ++
+  new WithNBreakpoints(8) ++
+  new WithNBigCores(1)    ++
+  new RocketBaseConfig)
+  
+class Rocket64b3gem extends Config(
   new WithGemmini(2, 64)  ++
   new WithInclusiveCache  ++
   new WithNBreakpoints(8) ++
-  new WithNBigCores(2)    ++
+  new WithNBigCores(1)    ++
   new RocketBaseConfig)
 
 class Rocket64b4 extends Config(
@@ -344,3 +352,21 @@ class Rocket64z2m extends Config(
   new boom.common.WithNMegaBooms(2) ++
   new WithExtMemSize(0x3f80000000L) ++
   new RocketWideBusConfig)
+
+class Rocket64b1fft8 extends Config(
+  // new fftgenerator.WithFFTGenerator(numPoints=8, width=16, decPt=8) ++
+  new WithFFTGenerator(baseAddr=0x2400, numPoints=8, width=16, decPt=8) ++
+  new WithInclusiveCache ++
+  new WithNBreakpoints(8) ++
+  new WithNBigCores(1) ++
+  new RocketBaseConfig
+)
+
+import freechips.rocketchip.config.{Field, Parameters, Config}
+
+//parameter to enable FFT
+case object FFTEnableKey extends Field[Option[FixedTailParams]](None)
+
+class WithFFTGenerator (baseAddr: Int = 0x2400, numPoints: Int, width: Int = 16, decPt: Int = 8) extends Config((site, here, up) => {
+  case FFTEnableKey => Some(FixedTailParams(baseAddress = baseAddr, n = numPoints, lanes = numPoints, IOWidth = width, binaryPoint = decPt))
+})

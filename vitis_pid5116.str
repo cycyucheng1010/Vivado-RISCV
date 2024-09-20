@@ -1,0 +1,76 @@
+/*
+
+Xilinx Vitis v2021.1.0 (64-bit) [Major: 2021, Minor: 1]
+SW Build 3245906 on 2021-06-09-18:10:55
+
+Process ID (PID): 5116
+License: Customer
+
+Current time: 	Tue Mar 08 15:03:24 CST 2022
+Time zone: 	Taipei Standard Time (Asia/Taipei)
+
+OS: Ubuntu
+OS Version: 5.13.0-30-generic
+OS Architecture: amd64
+Available processors (cores): 16
+
+Display: :0
+Screen size: 1920x1080
+Available screens: 2
+Available disk space: 691 GB
+
+Java version: 	11.0.2 64-bit
+Java home: 	/tools/Xilinx/Vitis/2021.1/tps/lnx64/jre11.0.2
+Java executable location: 	/tools/Xilinx/Vitis/2021.1/tps/lnx64/jre11.0.2/bin/java
+Java initial memory (-Xms): 	64 MB
+Java maximum memory (-Xmx):	 1,024 MB
+
+Java library paths: /tools/Xilinx/Vitis/2021.1/tps/lnx64/javafx-sdk-11.0.2/lib:/tools/Xilinx/Vitis/2021.1/lib/lnx64.o/Ubuntu:/tools/Xilinx/Vitis/2021.1/lib/lnx64.o:/tools/Xilinx/Vitis/2021.1/tps/lnx64/jre11.0.2/lib/:/tools/Xilinx/Vitis/2021.1/tps/lnx64/jre11.0.2/lib//server:/tools/Xilinx/Vitis/2021.1/lib/lnx64.o:/tools/Xilinx/Vitis/2021.1/lib/lnx64.o/Ubuntu:/tools/Xilinx/Vitis/2021.1/lib/lnx64.o:/tools/Xilinx/Vitis/2021.1/tps/lnx64/python-3.8.3/lib:/tools/Xilinx/Vitis/2021.1/aietools/lib/lnx64.o:/home/hank/chipyard/esp-tools-install/lib:/tools/Xilinx/Vivado/2021.1/bin/../lnx64/tools/dot/lib:/tools/Xilinx/Vitis/2021.1/bin/../lnx64/tools/dot/lib:/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+
+Java class paths: /tools/Xilinx/Vitis/2021.1/eclipse/lnx64.o//plugins/org.eclipse.equinox.launcher_1.5.700.v20200207-2156.jar
+LD_LIBRARY_PATH: /tools/Xilinx/Vitis
+
+User name: 	hank
+User home directory: /home/hank
+User working directory: /home/hank/vivado-risc-v
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /tools/Xilinx/Vitis
+HDI_APPROOT: /tools/Xilinx/Vitis/2021.1
+RDI_DATADIR: /tools/Xilinx/Vitis/2021.1/data
+RDI_BINDIR: /tools/Xilinx/Vitis/2021.1/bin
+
+Vitis preferences directory: /home/hank/.Xilinx/Vitis/2021.1/
+Vitis workspace directory: /home/hank/Vitis/workspace
+Vitis workspace log file location: /home/hank/Vitis/workspace/.metadata/.log
+Engine tmp dir: 	
+
+Xilinx Environment Variables
+----------------------------
+XILINX_DSP: 
+XILINX_HLS: /tools/Xilinx/Vitis_HLS/2021.1
+XILINX_PLANAHEAD: /tools/Xilinx/Vitis/2021.1
+XILINX_SDK: /tools/Xilinx/Vitis/2021.1
+XILINX_VITIS: /tools/Xilinx/Vitis/2021.1
+XILINX_VIVADO: /tools/Xilinx/Vivado/2021.1
+XILINX_VIVADO_HLS: /tools/Xilinx/Vivado/2021.1
+_RDI_DONT_SET_XILINX_AS_PATH: True
+
+
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+selectButton("Next", "New Application Project (Create a New Application Project)", "NewAppProjectWizard", "Button.NEXT");
+selectTab("Create a new platform from hardware", "New Application Project (Platform)", "NewAppProjectWizard", "CTabItem.CREATE_A_NEW_PLATFORM");
+selectButton("Browse", "New Application Project (Platform)", "NewAppProjectWizard", "Button.BROWSE");
+setFileDialog("/home/hank/vivado-risc-v/workspace/Rocket64b1gem/vivado-nexys-video-riscv/riscv_wrapper.xsa", "Create Platform from XSA", "SDXFileDialog", "Button.OK");
+selectButton("Next", "New Application Project (Platform)", "NewAppProjectWizard", "Button.NEXT");
+setTextField("riscv", "New Application Project (Application Project Details)", "NewAppProjectWizard", "Text.APPLICATION_PROJECT_NAME");
+selectButton("Cancel", "New Application Project (Application Project Details)", "NewAppProjectWizard", "Button.CANCEL");
+selectButton("Exit", "Confirm Exit", "MessageDialogWithToggle", "Button.EXIT");
+// Exiting Xilinx Vitis with a status code '0' at 3/8/22, 3:04:48 PM CST
+// Elapsed time: 00:01:23
+

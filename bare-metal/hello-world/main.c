@@ -1,5 +1,6 @@
 #include <stdint.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "common.h"
 #include "kprintf.h"
@@ -17,8 +18,9 @@ static void usleep(unsigned us) {
 int main(void) {
     kprintf("\n");
     for (;;) {
-        kprintf("Hello World!\n");
-        usleep(1000000);
+    	int a[0] = {1},b[0];;
+        kprintf("Hello World!%d\n",b[0]);
+        usleep(1000);
     }
     return 0;
 }
