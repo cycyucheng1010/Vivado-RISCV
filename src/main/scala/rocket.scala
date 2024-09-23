@@ -362,6 +362,17 @@ class Rocket64b1fft8 extends Config(
   new RocketBaseConfig
 )
 
+class Rocket64b1fft16 extends Config(
+  // new fftgenerator.WithFFTGenerator(numPoints=8, width=16, decPt=8) ++
+  new WithFFTGenerator(baseAddr=0x2000, numPoints=16, width=32, decPt=8) ++
+  new WithInclusiveCache ++
+  new WithNBreakpoints(8) ++
+  new WithNBigCores(1) ++
+  new RocketBaseConfig
+)
+
+
+/*
 import freechips.rocketchip.config.{Field, Parameters, Config}
 
 //parameter to enable FFT
@@ -370,3 +381,4 @@ case object FFTEnableKey extends Field[Option[FixedTailParams]](None)
 class WithFFTGenerator (baseAddr: Int = 0x2400, numPoints: Int, width: Int = 16, decPt: Int = 8) extends Config((site, here, up) => {
   case FFTEnableKey => Some(FixedTailParams(baseAddress = baseAddr, n = numPoints, lanes = numPoints, IOWidth = width, binaryPoint = decPt))
 })
+*/

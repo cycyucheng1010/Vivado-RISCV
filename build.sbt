@@ -1,3 +1,7 @@
+val chiselVersion = "3.5.1"
+val firrtlVersion = "1.5.1"
+val chiselTestVersion = "2.5.1"
+
 lazy val commonSettings = Seq(
   organization := "edu.berkeley.cs",
   version := "1.6", //1.0
@@ -5,8 +9,8 @@ lazy val commonSettings = Seq(
   crossScalaVersions := Seq("2.12.10"),
   parallelExecution in Global := false,
   scalacOptions ++= Seq("-deprecation","-unchecked","-Xsource:2.11","-P:chiselplugin:useBundlePlugin"),
-  addCompilerPlugin("edu.berkeley.cs" % "chisel3-plugin" % "3.5.1" cross CrossVersion.full),
-  libraryDependencies ++= Seq("edu.berkeley.cs" %% "chisel3" % "3.5.1"))
+  addCompilerPlugin("edu.berkeley.cs" % "chisel3-plugin" % chiselVersion cross CrossVersion.full),
+  libraryDependencies ++= Seq("edu.berkeley.cs" %% "chisel3" % chiselVersion))
 
 lazy val vivado = (project in file("."))
   .dependsOn(boom)
@@ -20,6 +24,7 @@ lazy val vivado = (project in file("."))
   .settings(commonSettings)
 
 lazy val rocketchip = (project in file("rocket-chip"))
+  .dependsOn(rocketConfig)
   .settings(commonSettings)
 
 lazy val rocketLibDeps = (rocketchip / Keys.libraryDependencies)
@@ -55,7 +60,7 @@ lazy val fft_generator = (project in file("generators/fft-generator"))
   .settings(libraryDependencies ++= rocketLibDeps.value)
   .settings(commonSettings)
 
-lazy val dsptools = freshProject("dsptools", file("./tools/dsptools"))
+lazy val dsptools = freshProject("dsptools", file("rocket-chip/dsptools")) //./tools/dsptools
   .settings(
     chiselSettings,
     chiselTestSettings,
@@ -68,7 +73,20 @@ lazy val dsptools = freshProject("dsptools", file("./tools/dsptools"))
       "org.scalacheck" %% "scalacheck" % "1.14.3" % "test",
   ))
 
-lazy val api_config_chipsalliance = freshProject("api-config-chipsalliance", file("./tools/api-config-chipsalliance"))
+
+val rocketChipDir = file("generators/rocket-chip")
+lazy val rocketConfig = (project in rocketChipDir / "api-config-chipsalliance/build-rules/sbt")
+  .settings(commonSettings)
+  .settings(
+    libraryDependencies ++= Seq(
+      "org.scala-lang" % "scala-reflect" % scalaVersion.value,
+      "org.json4s" %% "json4s-jackson" % "3.6.1",
+      "org.scalatest" %% "scalatest" % "3.2.0" % "test"
+    )
+  )
+
+
+lazy val api_config_chipsalliance = freshProject("api-config-chipsalliance", file("rocket-chip/api-config-chipsalliance")) // ./tools/api-config-chipsalliance
   .settings(
     commonSettings,
     libraryDependencies ++= Seq(
@@ -76,7 +94,7 @@ lazy val api_config_chipsalliance = freshProject("api-config-chipsalliance", fil
       "org.scalacheck" %% "scalacheck" % "1.14.3" % "test",
     ))
 
-lazy val rocket_dsp_utils = freshProject("rocket-dsp-utils", file("./tools/rocket-dsp-utils"))
+lazy val rocket_dsp_utils = freshProject("rocket-dsp-utils", file("rocket-chip/rocket-dsp-utils")) // ./tools/rocket-dsp-utils
   .dependsOn(rocketchip, api_config_chipsalliance, dsptools)
   .settings(libraryDependencies ++= rocketLibDeps.value)
   .settings(commonSettings)
@@ -94,7 +112,7 @@ def freshProject(name: String, dir: File): Project = {
     )
 }
 
-val chiselVersion = "3.5.1"
+
 
 lazy val chiselSettings = Seq(
    libraryDependencies ++= Seq("edu.berkeley.cs" %% "chisel3" % chiselVersion,
@@ -102,10 +120,8 @@ lazy val chiselSettings = Seq(
    "org.apache.commons" % "commons-text" % "1.9"),
    addCompilerPlugin("edu.berkeley.cs" % "chisel3-plugin" % chiselVersion cross CrossVersion.full))
 
- val firrtlVersion = "1.5.1"
+
 
 lazy val firrtlSettings = Seq(libraryDependencies ++= Seq("edu.berkeley.cs" %% "firrtl" % firrtlVersion))
-
-val chiselTestVersion = "2.5.1"
 
 lazy val chiselTestSettings = Seq(libraryDependencies ++= Seq("edu.berkeley.cs" %% "chisel-iotesters" % chiselTestVersion))

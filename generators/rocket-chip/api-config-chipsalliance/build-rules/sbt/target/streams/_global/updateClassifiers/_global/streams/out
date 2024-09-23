@@ -1,0 +1,3 @@
+[debug] "not up to date. inChanged = true, force = false
+[debug] Updating ProjectRef(uri("file:/home/mc2/vivado-risc-v/"), "rocketConfig")...
+[debug] Done updating ProjectRef(uri("file:/home/mc2/vivado-risc-v/"), "rocketConfig")

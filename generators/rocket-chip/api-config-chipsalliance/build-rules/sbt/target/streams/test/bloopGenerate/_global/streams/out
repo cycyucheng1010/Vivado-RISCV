@@ -1,0 +1,4 @@
+[debug] [rocketConfig-test] Classpath dependencies List()
+[debug] [rocketConfig-test] Dependencies from configurations List(rocketConfig)
+[debug] Bloop wrote the configuration of project 'rocketConfig-test' to '/home/mc2/vivado-risc-v/.bloop/rocketConfig-test.json'
+[success] Generated .bloop/rocketConfig-test.json

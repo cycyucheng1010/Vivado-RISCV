@@ -1,0 +1,4 @@
+[debug] [sifive_blocks-test] Classpath dependencies List(rocketchip)
+[debug] [sifive_blocks-test] Dependencies from configurations List(sifive_blocks)
+[debug] Bloop wrote the configuration of project 'sifive_blocks-test' to '/home/mc2/vivado-risc-v/.bloop/sifive_blocks-test.json'
+[success] Generated .bloop/sifive_blocks-test.json

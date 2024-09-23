@@ -1,4 +1,4 @@
-[debug] Packaging /home/mc2/chipyard/tools/api-config-chipsalliance/src/target/scala-2.12/api-config-chipsalliance_2.12-1.6.jar ...
-[debug] Input file mappings:
-[debug] 	
-[debug] Done packaging.
+[0m[[0m[0mdebug[0m] [0m[0mPackaging /home/mc2/vivado-risc-v/tools/api-config-chipsalliance/src/target/scala-2.12/api-config-chipsalliance_2.12-1.6.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m
