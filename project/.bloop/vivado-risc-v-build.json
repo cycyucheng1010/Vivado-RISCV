@@ -331,7 +331,7 @@
         "platform": {
             "name": "jvm",
             "config": {
-                "home": "/home/mc2/test/chipyard/.conda-env/lib/jvm",
+                "home": "/home/mc2/chipyard/.conda-env/lib/jvm",
                 "options": [
                     "-Duser.dir=/home/mc2/vivado-risc-v/project"
                 ]
@@ -340,7 +340,7 @@
                 
             ],
             "runtimeConfig": {
-                "home": "/home/mc2/test/chipyard/.conda-env/lib/jvm",
+                "home": "/home/mc2/chipyard/.conda-env/lib/jvm",
                 "options": [
                     "-Duser.dir=/home/mc2/vivado-risc-v/project"
                 ]
