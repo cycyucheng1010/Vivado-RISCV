@@ -20,6 +20,8 @@ lazy val vivado = (project in file("."))
   .dependsOn(fft_generator)
   .dependsOn(dsptools)
   .dependsOn(rocket_dsp_utils)
+  .dependsOn(api_config_chipsalliance)
+  .dependsOn(nvdla)
   .settings(libraryDependencies ++= rocketLibDeps.value)
   .settings(commonSettings)
 
@@ -60,7 +62,7 @@ lazy val fft_generator = (project in file("generators/fft-generator"))
   .settings(libraryDependencies ++= rocketLibDeps.value)
   .settings(commonSettings)
 
-lazy val dsptools = freshProject("dsptools", file("rocket-chip/dsptools")) //./tools/dsptools
+lazy val dsptools = freshProject("dsptools", file("tools/dsptools")) //./tools/dsptools
   .settings(
     chiselSettings,
     chiselTestSettings,
@@ -86,7 +88,7 @@ lazy val rocketConfig = (project in rocketChipDir / "api-config-chipsalliance/bu
   )
 
 
-lazy val api_config_chipsalliance = freshProject("api-config-chipsalliance", file("rocket-chip/api-config-chipsalliance")) // ./tools/api-config-chipsalliance
+lazy val api_config_chipsalliance = freshProject("api-config-chipsalliance", file("tools/api-config-chipsalliance")) // ./tools/api-config-chipsalliance
   .settings(
     commonSettings,
     libraryDependencies ++= Seq(
@@ -94,7 +96,7 @@ lazy val api_config_chipsalliance = freshProject("api-config-chipsalliance", fil
       "org.scalacheck" %% "scalacheck" % "1.14.3" % "test",
     ))
 
-lazy val rocket_dsp_utils = freshProject("rocket-dsp-utils", file("rocket-chip/rocket-dsp-utils")) // ./tools/rocket-dsp-utils
+lazy val rocket_dsp_utils = freshProject("rocket-dsp-utils", file("tools/rocket-dsp-utils")) // ./tools/rocket-dsp-utils
   .dependsOn(rocketchip, api_config_chipsalliance, dsptools)
   .settings(libraryDependencies ++= rocketLibDeps.value)
   .settings(commonSettings)
@@ -125,3 +127,10 @@ lazy val chiselSettings = Seq(
 lazy val firrtlSettings = Seq(libraryDependencies ++= Seq("edu.berkeley.cs" %% "firrtl" % firrtlVersion))
 
 lazy val chiselTestSettings = Seq(libraryDependencies ++= Seq("edu.berkeley.cs" %% "chisel-iotesters" % chiselTestVersion))
+
+
+
+lazy val nvdla = (project in file("generators/nvdla"))
+  .dependsOn(rocketchip)
+  .settings(libraryDependencies ++= rocketLibDeps.value)
+  .settings(commonSettings)
