@@ -22,6 +22,7 @@ lazy val vivado = (project in file("."))
   .dependsOn(rocket_dsp_utils)
   .dependsOn(api_config_chipsalliance)
   .dependsOn(nvdla)
+  //.dependsOn(chipyard)
   .settings(libraryDependencies ++= rocketLibDeps.value)
   .settings(commonSettings)
 

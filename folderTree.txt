@@ -1,0 +1,1933 @@
+│   │       ├── scala-2.12
+│   │           │   ├── scalaCompilerBridgeScope
+│   │   │   │   └── scala
+│   │   │   │       ├── ChipTop.scala
+│   │   │   │       ├── DigitalTop.scala
+│   │   │   │       ├── Generator.scala
+│   │   │   │       ├── HarnessBinders.scala
+│   │   │   │       ├── IOBinders.scala
+│   │   │   │       ├── Subsystem.scala
+│   │   │   │       ├── System.scala
+│   │   │   │       ├── TestHarness.scala
+│   │   │   │       ├── TestSuites.scala
+│   │   │   │       │   ├── ClockDividerN.scala
+│   │   │   │       │   ├── ClockGroupCombiner.scala
+│   │   │   │       │   ├── ClockGroupNamePrefixer.scala
+│   │   │   │       │   ├── DividerOnlyClockGenerator.scala
+│   │   │   │       │   ├── HasChipyardPRCI.scala
+│   │   │   │       │   ├── TileClockGater.scala
+│   │   │   │       │   └── TileResetSetter.scala
+│   │   │   │       │   ├── AbstractConfig.scala
+│   │   │   │       │   ├── BoomConfigs.scala
+│   │   │   │       │   ├── CVA6Configs.scala
+│   │   │   │       │   ├── GemminiCPUConfigs.scala
+│   │   │   │       │   ├── GemminiSoCConfigs.scala
+│   │   │   │       │   ├── HeteroConfigs.scala
+│   │   │   │       │   ├── IbexConfigs.scala
+│   │   │   │       │   ├── NoCConfigs.scala
+│   │   │   │       │   ├── RocketConfigs.scala
+│   │   │   │       │   ├── RocketSha3Configs.scala
+│   │   │   │       │   ├── SodorConfigs.scala
+│   │   │   │       │   ├── TracegenConfigs.scala
+│   │   │   │       │   ├── TutorialConfigs.scala
+│   │   │   │       │       ├── ClockingFragments.scala
+│   │   │   │       │       ├── PeripheralFragments.scala
+│   │   │   │       │       ├── RoCCFragments.scala
+│   │   │   │       │       ├── SubsystemFragments.scala
+│   │   │   │       │       ├── TileFragments.scala
+│   │   │   │       │       └── TracegenFragments.scala
+│   │   │   │       │   ├── GCD.scala
+│   │   │   │       │   ├── InitZero.scala
+│   │   │   │       │   ├── NodeTypes.scala
+│   │   │   │       │   ├── RegisterNodeExample.scala
+│   │   │   │       │   ├── TutorialTile.scala
+│   │   │   │       │       ├── DspBlocks.scala
+│   │   │   │       │       ├── GenericFIR.scala
+│   │   │   │       │       └── StreamingPassthrough.scala
+│   │   │   │       │   ├── ChipyardAnnotations.scala
+│   │   │   │       │   ├── ChipyardCli.scala
+│   │   │   │       │   ├── ChipyardStage.scala
+│   │   │   │       │       ├── AddDefaultTests.scala
+│   │   │   │       │       └── GenerateTestSuiteMakefrags.scala
+│   │   │   │           ├── TestHarness.scala
+│   │   │   │           └── UnitTestSuite.scala
+│   │   │       └── scala
+│   │   │               └── SimplePllConfigurationSpec.scala
+│   │       ├── scala-2.12
+│   │           │   ├── scalaCompilerBridgeScope
+│   │           │   ├── scalacOptions
+│   │   │       └── scala
+│   │   │           ├── CVA6CoreBlackbox.scala
+│   │   │           ├── CVA6Tile.scala
+│   │   │           └── ConfigMixins.scala
+│   │       ├── scala-2.12
+│   │           │   ├── scalaCompilerBridgeScope
+│   │               ├── scalacOptions
+│   │   │       └── scala
+│   │   │           ├── Deserialize.scala
+│   │   │           ├── FFT.scala
+│   │   │           ├── FFTConfig.scala
+│   │   │           ├── FFTGeneratorConfigs.scala
+│   │   │           ├── FFTUtilities.scala
+│   │   │           ├── Tail.scala
+│   │   │           └── Unscramble.scala
+│   │   │   ├── scala-2.12
+│   │   │       │   ├── scalaCompilerBridgeScope
+│   │   │       │   ├── scalacOptions
+│   │   ├── scalastyle-config.xml
+│   │   ├── scalastyle-test-config.xml
+│   │   │   │   └── scala
+│   │   │   │           ├── AccumulatorMem.scala
+│   │   │   │           ├── AccumulatorScale.scala
+│   │   │   │           ├── Activation.scala
+│   │   │   │           ├── Arithmetic.scala
+│   │   │   │           ├── BeatMerger.scala
+│   │   │   │           ├── CmdFSM.scala
+│   │   │   │           ├── Configs.scala
+│   │   │   │           ├── ConfigsFP.scala
+│   │   │   │           ├── Controller.scala
+│   │   │   │           ├── CounterFile.scala
+│   │   │   │           ├── CustomCPUConfigs.scala
+│   │   │   │           ├── CustomConfigs.scala
+│   │   │   │           ├── CustomSoCConfigs.scala
+│   │   │   │           ├── DMA.scala
+│   │   │   │           ├── DMACommandTracker.scala
+│   │   │   │           ├── DSEConfigs.scala
+│   │   │   │           ├── Dataflow.scala
+│   │   │   │           ├── ExecuteController.scala
+│   │   │   │           ├── FrontendTLB.scala
+│   │   │   │           ├── GemminiConfigs.scala
+│   │   │   │           ├── GemminiISA.scala
+│   │   │   │           ├── Im2Col.scala
+│   │   │   │           ├── InstructionCompression.scala
+│   │   │   │           ├── LoadController.scala
+│   │   │   │           ├── LocalAddr.scala
+│   │   │   │           ├── LoopConv.scala
+│   │   │   │           ├── LoopMatmul.scala
+│   │   │   │           ├── LoopUnroller.scala
+│   │   │   │           ├── Mesh.scala
+│   │   │   │           ├── MeshWithDelays.scala
+│   │   │   │           ├── MultiHeadedQueue.scala
+│   │   │   │           ├── MultiTailedQueue.scala
+│   │   │   │           ├── PE.scala
+│   │   │   │           ├── Pipeline.scala
+│   │   │   │           ├── PixelRepeater.scala
+│   │   │   │           ├── ReservationStation.scala
+│   │   │   │           ├── Scratchpad.scala
+│   │   │   │           ├── SharedExtMem.scala
+│   │   │   │           ├── Shifter.scala
+│   │   │   │           ├── StoreController.scala
+│   │   │   │           ├── SyncMem.scala
+│   │   │   │           ├── TagQueue.scala
+│   │   │   │           ├── Tile.scala
+│   │   │   │           ├── TilerController.scala
+│   │   │   │           ├── TilerFSM.scala
+│   │   │   │           ├── TilerScheduler.scala
+│   │   │   │           ├── TransposePreloadUnroller.scala
+│   │   │   │           ├── Transposer.scala
+│   │   │   │           ├── Util.scala
+│   │   │   │           ├── VectorScalarMultiplier.scala
+│   │   │   │           ├── WeightedArbiter.scala
+│   │   │   │           ├── XactTracker.scala
+│   │   │   │           └── ZeroWriter.scala
+│   │   │       └── scala
+│   │   │               ├── DMACommandTrackerTest.scala
+│   │   │               ├── HeaderGenerationUnitTest.scala
+│   │   │               ├── MeshWithDelaysUnitTest.scala
+│   │   │               ├── PipelineTest.scala
+│   │   │               ├── TestUtils.scala
+│   │   │               └── TransposerUnitTest.scala
+│   │       ├── scala-2.12
+│   │           │   ├── scalaCompilerBridgeScope
+│   │           │   ├── scalacOptions
+│   │       ├── scala-2.12
+│   │           │   ├── scalaCompilerBridgeScope
+│   │               ├── scalacOptions
+│   │   ├── scalastyle-config.xml
+│   │   │   │   └── scala
+│   │   │   │       │   ├── config-mixins.scala
+│   │   │   │       │   ├── consts.scala
+│   │   │   │       │   ├── micro-op.scala
+│   │   │   │       │   ├── package.scala
+│   │   │   │       │   ├── parameters.scala
+│   │   │   │       │   ├── tile.scala
+│   │   │   │       │   └── types.scala
+│   │   │   │       │   ├── core.scala
+│   │   │   │       │   ├── decode.scala
+│   │   │   │       │   ├── dispatch.scala
+│   │   │   │       │   │   ├── execution-unit.scala
+│   │   │   │       │   │   ├── execution-units.scala
+│   │   │   │       │   │   ├── fdiv.scala
+│   │   │   │       │   │   ├── fpu.scala
+│   │   │   │       │   │   ├── functional-unit.scala
+│   │   │   │       │   │   └── rocc.scala
+│   │   │   │       │   ├── fp-pipeline.scala
+│   │   │   │       │   │   ├── issue-slot.scala
+│   │   │   │       │   │   ├── issue-unit-age-ordered.scala
+│   │   │   │       │   │   ├── issue-unit-unordered.scala
+│   │   │   │       │   │   └── issue-unit.scala
+│   │   │   │       │   │   ├── func-unit-decode.scala
+│   │   │   │       │   │   ├── regfile.scala
+│   │   │   │       │   │   └── register-read.scala
+│   │   │   │       │   │   ├── rename-busytable.scala
+│   │   │   │       │   │   ├── rename-freelist.scala
+│   │   │   │       │   │   ├── rename-maptable.scala
+│   │   │   │       │   │   └── rename-stage.scala
+│   │   │   │       │   └── rob.scala
+│   │   │   │       │   │   ├── bim.scala
+│   │   │   │       │   │   ├── btb.scala
+│   │   │   │       │   │   ├── composer.scala
+│   │   │   │       │   │   ├── faubtb.scala
+│   │   │   │       │   │   ├── hbim.scala
+│   │   │   │       │   │   ├── local.scala
+│   │   │   │       │   │   ├── loop.scala
+│   │   │   │       │   │   ├── predictor.scala
+│   │   │   │       │   │   ├── ras.scala
+│   │   │   │       │   │   ├── sw_predictor.scala
+│   │   │   │       │   │   ├── tage.scala
+│   │   │   │       │   │   ├── tourney.scala
+│   │   │   │       │   │   └── ubtb.scala
+│   │   │   │       │   ├── fetch-buffer.scala
+│   │   │   │       │   ├── fetch-target-queue.scala
+│   │   │   │       │   ├── frontend.scala
+│   │   │   │       │   └── icache.scala
+│   │   │   │       │   ├── dcache.scala
+│   │   │   │       │   ├── lsu.scala
+│   │   │   │       │   ├── mshrs.scala
+│   │   │   │       │   ├── prefetcher.scala
+│   │   │   │       │   └── tlb.scala
+│   │   │   │           ├── elastic-reg.scala
+│   │   │   │           ├── elastic-sram.scala
+│   │   │   │           ├── seqmem-transformable.scala
+│   │   │   │           └── util.scala
+│   │   │       └── scala
+│   │   │           ├── RegFileTest.scala
+│   │   │           └── TestUtils.scala
+│   │   │   ├── scala-2.12
+│   │   │       │   ├── scalaCompilerBridgeScope
+│   │   │       │   ├── scalacOptions
+│   │   │               ├── scala-2.12
+│   │   │                   │   ├── scalaCompilerBridgeScope
+│   │   │       ├── scala-2.12
+│   │   │           │   ├── scalaCompilerBridgeScope
+│   │   │       ├── scala-2.12
+│   │   │           │   ├── scalaCompilerBridgeScope
+│   │           ├── scala-2.12
+│   │               │   ├── scalaCompilerBridgeScope
+│   │       ├── scala-2.12
+│   │           │   ├── scalaCompilerBridgeScope
+│   │   │               ├── BankedStore.scala
+│   │   │               ├── Configs.scala
+│   │   │               ├── Directory.scala
+│   │   │               ├── InclusiveCache.scala
+│   │   │               ├── InclusiveCacheLogicalTreeNode.scala
+│   │   │               ├── ListBuffer.scala
+│   │   │               ├── MSHR.scala
+│   │   │               ├── OMCacheMaster.scala
+│   │   │               ├── OMInclusiveCache.scala
+│   │   │               ├── Parameters.scala
+│   │   │               ├── QueuedRequest.scala
+│   │   │               ├── Scheduler.scala
+│   │   │               ├── SinkA.scala
+│   │   │               ├── SinkC.scala
+│   │   │               ├── SinkD.scala
+│   │   │               ├── SinkE.scala
+│   │   │               ├── SinkX.scala
+│   │   │               ├── SourceA.scala
+│   │   │               ├── SourceB.scala
+│   │   │               ├── SourceC.scala
+│   │   │               ├── SourceD.scala
+│   │   │               ├── SourceE.scala
+│   │   │               └── SourceX.scala
+│   │   │   ├── scala-2.12
+│   │   │       │   ├── scalaCompilerBridgeScope
+│   │   │       │   ├── scalacOptions
+│   │   │       └── scala
+│   │   │               └── annotations.scala
+│   │       ├── scala-2.12
+│   │           │   ├── scalaCompilerBridgeScope
+│   │           │   ├── scalacOptions
+│       │       └── scala
+│       │           ├── BlockDevice.scala
+│       │           ├── ClockUtil.scala
+│       │           ├── ClockUtilTests.scala
+│       │           ├── Configs.scala
+│       │           ├── Dromajo.scala
+│       │           ├── HeaderEnum.scala
+│       │           ├── Network.scala
+│       │           ├── NoDebug.scala
+│       │           ├── Ring.scala
+│       │           ├── SPIFlash.scala
+│       │           ├── Scratchpad.scala
+│       │           ├── Serdes.scala
+│       │           ├── SerialAdapter.scala
+│       │           ├── SimDRAM.scala
+│       │           ├── Switcher.scala
+│       │           ├── TileResetCtrl.scala
+│       │           ├── TraceIO.scala
+│       │           ├── UARTAdapter.scala
+│       │           ├── Unittests.scala
+│       │           └── Util.scala
+│       │   ├── scala-2.12
+│       │       │   ├── scalaCompilerBridgeScope
+│       │       │   ├── scalacOptions
+│   │   │   │   ├── chacha-scalar-core.S
+│   │   │   │   │       ├── scalar_processor_2400_params.h
+│   │   │   ├── tcp_scalable.c
+│   │   │       ├── scala-2.12
+│   │   │           │   ├── scalaCompilerBridgeScope
+│   │   │           │   ├── scalacOptions
+│   │       ├── scala-2.12
+│   │           │   ├── scalaCompilerBridgeScope
+│   │           │   ├── scalacOptions
+│       ├── scala-2.12
+│           │   ├── scalaCompilerBridgeScope
+│           │   ├── scalacOptions
+│   │   │   │       ├── scala-2.12
+│   │   │   │           │   ├── scalaCompilerBridgeScope
+│   │   │   │           │   ├── scalacOptions
+│   │   │               └── Config.scala
+│   │       ├── scala-2.12
+│   │       │   ├── scala-2.12
+│   │       │   │   │   └── scala
+│   │       │       │   ├── scalaCompilerBridgeScope
+│   │       │       │   ├── scalacOptions
+│   │   │   │   └── scala
+│   │   │   │       ├── AddRecFN.scala
+│   │   │   │       ├── CompareRecFN.scala
+│   │   │   │       ├── DivSqrtRecF64.scala
+│   │   │   │       ├── DivSqrtRecF64_mulAddZ31.scala
+│   │   │   │       ├── DivSqrtRecFN_small.scala
+│   │   │   │       ├── INToRecFN.scala
+│   │   │   │       ├── MulAddRecFN.scala
+│   │   │   │       ├── MulRecFN.scala
+│   │   │   │       ├── RecFNToIN.scala
+│   │   │   │       ├── RecFNToRecFN.scala
+│   │   │   │       ├── RoundAnyRawFNToRecFN.scala
+│   │   │   │       ├── classifyRecFN.scala
+│   │   │   │       ├── common.scala
+│   │   │   │       ├── fNFromRecFN.scala
+│   │   │   │       ├── primitives.scala
+│   │   │   │       ├── rawFloatFromFN.scala
+│   │   │   │       ├── rawFloatFromIN.scala
+│   │   │   │       ├── rawFloatFromRecFN.scala
+│   │   │   │       ├── recFNFromFN.scala
+│   │   │   │       └── resizeRawFloat.scala
+│   │   │       └── scala
+│   │   │           ├── FMATester.scala
+│   │   │           ├── HardfloatTester.scala
+│   │   │           ├── ValExec_AddRecFN.scala
+│   │   │           ├── ValExec_CompareRecFN.scala
+│   │   │           ├── ValExec_DivSqrtRecF64.scala
+│   │   │           ├── ValExec_DivSqrtRecFN_small.scala
+│   │   │           ├── ValExec_INToRecFN.scala
+│   │   │           ├── ValExec_MulAddRecFN.scala
+│   │   │           ├── ValExec_MulRecFN.scala
+│   │   │           ├── ValExec_RecFNToIN.scala
+│   │   │           ├── ValExec_RecFNToRecFN.scala
+│   │   │           ├── ValExec_fNFromRecFN.scala
+│   │   │           └── package.scala
+│   │       ├── scala-2.12
+│   │           │   ├── scalaCompilerBridgeScope
+│   │           │   ├── scalacOptions
+│   │   │       └── scala
+│   │   │           └── ValName.scala
+│   │       ├── scala-2.12
+│   │           │   ├── scalaCompilerBridgeScope
+│   │           │   ├── scalacOptions
+│   │       ├── scala-2.12
+│   │           │   ├── scalaCompilerBridgeScope
+│   │           ├── scala-2.12
+│   │               │   ├── scalaCompilerBridgeScope
+│   │               │   ├── scalacOptions
+│   │   │   └── scala
+│   │   │       │   │   ├── AHBLite.scala
+│   │   │       │   │   ├── Bundles.scala
+│   │   │       │   │   ├── Monitor.scala
+│   │   │       │   │   ├── Nodes.scala
+│   │   │       │   │   ├── Parameters.scala
+│   │   │       │   │   ├── Protocol.scala
+│   │   │       │   │   ├── RegisterRouter.scala
+│   │   │       │   │   ├── SRAM.scala
+│   │   │       │   │   ├── Test.scala
+│   │   │       │   │   ├── ToTL.scala
+│   │   │       │   │   ├── Xbar.scala
+│   │   │       │   │   └── package.scala
+│   │   │       │   │   ├── Bundles.scala
+│   │   │       │   │   ├── Monitor.scala
+│   │   │       │   │   ├── Nodes.scala
+│   │   │       │   │   ├── Parameters.scala
+│   │   │       │   │   ├── Protocol.scala
+│   │   │       │   │   ├── RegisterRouter.scala
+│   │   │       │   │   ├── SRAM.scala
+│   │   │       │   │   ├── Test.scala
+│   │   │       │   │   ├── ToTL.scala
+│   │   │       │   │   ├── Xbar.scala
+│   │   │       │   │   └── package.scala
+│   │   │       │   │   ├── AsyncCrossing.scala
+│   │   │       │   │   ├── Buffer.scala
+│   │   │       │   │   ├── Bundles.scala
+│   │   │       │   │   ├── Credited.scala
+│   │   │       │   │   ├── CrossingHelper.scala
+│   │   │       │   │   ├── Deinterleaver.scala
+│   │   │       │   │   ├── Delayer.scala
+│   │   │       │   │   ├── Filter.scala
+│   │   │       │   │   ├── Fragmenter.scala
+│   │   │       │   │   ├── IdIndexer.scala
+│   │   │       │   │   ├── Monitor.scala
+│   │   │       │   │   ├── Nodes.scala
+│   │   │       │   │   ├── Parameters.scala
+│   │   │       │   │   ├── Protocol.scala
+│   │   │       │   │   ├── RegisterRouter.scala
+│   │   │       │   │   ├── SRAM.scala
+│   │   │       │   │   ├── Test.scala
+│   │   │       │   │   ├── ToTL.scala
+│   │   │       │   │   ├── UserYanker.scala
+│   │   │       │   │   ├── Xbar.scala
+│   │   │       │   │   └── package.scala
+│   │   │       │   │   ├── Buffer.scala
+│   │   │       │   │   ├── Bundles.scala
+│   │   │       │   │   ├── Nodes.scala
+│   │   │       │   │   ├── Parameters.scala
+│   │   │       │   │   ├── Xbar.scala
+│   │   │       │   │   └── package.scala
+│   │   │       │   └── package.scala
+│   │   │       │   └── Select.scala
+│   │   │       │   └── RenameModulesAspect.scala
+│   │   │       │   │   ├── APB.scala
+│   │   │       │   │   ├── Custom.scala
+│   │   │       │   │   ├── DMI.scala
+│   │   │       │   │   ├── Debug.scala
+│   │   │       │   │   ├── DebugRomContents.scala
+│   │   │       │   │   ├── DebugRomNonzeroContents.scala
+│   │   │       │   │   ├── DebugTransport.scala
+│   │   │       │   │   ├── Periphery.scala
+│   │   │       │   │   ├── SBA.scala
+│   │   │       │   │   ├── abstract_commands.scala
+│   │   │       │   │   └── dm_registers.scala
+│   │   │       │       ├── BootROM.scala
+│   │   │       │       ├── BusBlocker.scala
+│   │   │       │       ├── BusBypass.scala
+│   │   │       │       ├── CLINT.scala
+│   │   │       │       ├── CanHaveBuiltInDevices.scala
+│   │   │       │       ├── ClockBlocker.scala
+│   │   │       │       ├── Deadlock.scala
+│   │   │       │       ├── DevNull.scala
+│   │   │       │       ├── Error.scala
+│   │   │       │       ├── MaskROM.scala
+│   │   │       │       ├── MasterMux.scala
+│   │   │       │       ├── PhysicalFilter.scala
+│   │   │       │       ├── Plic.scala
+│   │   │       │       ├── TestRAM.scala
+│   │   │       │       └── Zero.scala
+│   │   │       │   ├── AddressDecoder.scala
+│   │   │       │   ├── AddressRange.scala
+│   │   │       │   ├── BundleBridge.scala
+│   │   │       │   ├── ClockDomain.scala
+│   │   │       │   ├── Clone.scala
+│   │   │       │   ├── CloneModule.scala
+│   │   │       │   ├── DeviceTree.scala
+│   │   │       │   ├── FixedClockResource.scala
+│   │   │       │   ├── JSON.scala
+│   │   │       │   ├── LazyModule.scala
+│   │   │       │   ├── Nodes.scala
+│   │   │       │   ├── Parameters.scala
+│   │   │       │   ├── Resources.scala
+│   │   │       │   ├── SRAM.scala
+│   │   │       │   ├── Unreachable.scala
+│   │   │       │   ├── ValName.scala
+│   │   │       │   └── package.scala
+│   │   │       │   ├── ConstructOM.scala
+│   │   │       │   ├── DiplomaticObjectModelUtils.scala
+│   │   │       │   ├── HasLogicalTreeNode.scala
+│   │   │       │   │   ├── LogicalTreeNode.scala
+│   │   │       │   │   ├── LogicalTrees.scala
+│   │   │       │   │   └── RocketLogicalTreeNode.scala
+│   │   │       │       ├── CustomISAExtensions.scala
+│   │   │       │       ├── ISASpecifications.scala
+│   │   │       │       ├── OMAddressing.scala
+│   │   │       │       ├── OMBase.scala
+│   │   │       │       ├── OMBranchPredictor.scala
+│   │   │       │       ├── OMBusError.scala
+│   │   │       │       ├── OMBusMemory.scala
+│   │   │       │       ├── OMCLINT.scala
+│   │   │       │       ├── OMCaches.scala
+│   │   │       │       ├── OMCore.scala
+│   │   │       │       ├── OMCoreComplex.scala
+│   │   │       │       ├── OMDebug.scala
+│   │   │       │       ├── OMDevice.scala
+│   │   │       │       ├── OMErrorDevice.scala
+│   │   │       │       ├── OMFPU.scala
+│   │   │       │       ├── OMISA.scala
+│   │   │       │       ├── OMInterrupts.scala
+│   │   │       │       ├── OMMemory.scala
+│   │   │       │       ├── OMMulDiv.scala
+│   │   │       │       ├── OMPLIC.scala
+│   │   │       │       ├── OMPMP.scala
+│   │   │       │       ├── OMPerformanceMonitor.scala
+│   │   │       │       ├── OMPorts.scala
+│   │   │       │       ├── OMRTLModule.scala
+│   │   │       │       ├── OMRegFieldAccessType.scala
+│   │   │       │       ├── OMRegFieldRdAction.scala
+│   │   │       │       ├── OMRegFieldWrType.scala
+│   │   │       │       ├── OMRocketCore.scala
+│   │   │       │       ├── OMSRAM.scala
+│   │   │       │       ├── OMSpecification.scala
+│   │   │       │       ├── OMTestHarness.scala
+│   │   │       │       ├── OMUTLB.scala
+│   │   │       │       └── OMZeroDevice.scala
+│   │   │       │   └── ExampleDevice.scala
+│   │   │       │   └── FormalUtils.scala
+│   │   │       │   ├── Configs.scala
+│   │   │       │   ├── DummyPTW.scala
+│   │   │       │   ├── Generator.scala
+│   │   │       │   ├── GroundTestSubsystem.scala
+│   │   │       │   ├── Package.scala
+│   │   │       │   ├── Status.scala
+│   │   │       │   ├── TestHarness.scala
+│   │   │       │   ├── Tile.scala
+│   │   │       │   └── TraceGen.scala
+│   │   │       │   ├── BlockDuringReset.scala
+│   │   │       │   ├── Bundles.scala
+│   │   │       │   ├── Crossing.scala
+│   │   │       │   ├── CrossingHelper.scala
+│   │   │       │   ├── Nodes.scala
+│   │   │       │   ├── NullIntSource.scala
+│   │   │       │   ├── Parameters.scala
+│   │   │       │   ├── RegisterRouter.scala
+│   │   │       │   ├── Xbar.scala
+│   │   │       │   └── package.scala
+│   │   │       │   ├── JtagShifter.scala
+│   │   │       │   ├── JtagStateMachine.scala
+│   │   │       │   ├── JtagTap.scala
+│   │   │       │   ├── JtagUtils.scala
+│   │   │       │   ├── Utils.scala
+│   │   │       │   └── package.scala
+│   │   │       │   ├── LintAnnotation.scala
+│   │   │       │   ├── LintException.scala
+│   │   │       │   ├── LintReporter.scala
+│   │   │       │   ├── Linter.scala
+│   │   │       │       ├── LintAnonymousRegisters.scala
+│   │   │       │       ├── LintConflictingModuleNames.scala
+│   │   │       │       ├── LintRule.scala
+│   │   │       │       ├── LintTruncatingWidths.scala
+│   │   │       │       └── package.scala
+│   │   │       ├── package.scala
+│   │   │       │   ├── BundleBridgeBlockDuringReset.scala
+│   │   │       │   ├── ClockBundles.scala
+│   │   │       │   ├── ClockDivider.scala
+│   │   │       │   ├── ClockDomain.scala
+│   │   │       │   ├── ClockGroup.scala
+│   │   │       │   ├── ClockGroupDriver.scala
+│   │   │       │   ├── ClockNodes.scala
+│   │   │       │   ├── ClockParameters.scala
+│   │   │       │   ├── IOHelper.scala
+│   │   │       │   ├── ResetCrossingType.scala
+│   │   │       │   ├── ResetStretcher.scala
+│   │   │       │   ├── ResetSynchronizer.scala
+│   │   │       │   ├── ResetWrangler.scala
+│   │   │       │   ├── TestClockSource.scala
+│   │   │       │   └── package.scala
+│   │   │       │   ├── Annotation.scala
+│   │   │       │   ├── DescribedReg.scala
+│   │   │       │   ├── RegField.scala
+│   │   │       │   ├── RegFieldDesc.scala
+│   │   │       │   ├── RegMapper.scala
+│   │   │       │   ├── RegisterCrossing.scala
+│   │   │       │   ├── RegisterRouter.scala
+│   │   │       │   └── Test.scala
+│   │   │       │   ├── ALU.scala
+│   │   │       │   ├── AMOALU.scala
+│   │   │       │   ├── BTB.scala
+│   │   │       │   ├── Breakpoint.scala
+│   │   │       │   ├── CSR.scala
+│   │   │       │   ├── Consts.scala
+│   │   │       │   ├── DCache.scala
+│   │   │       │   ├── Decode.scala
+│   │   │       │   ├── Events.scala
+│   │   │       │   ├── Frontend.scala
+│   │   │       │   ├── HellaCache.scala
+│   │   │       │   ├── HellaCacheArbiter.scala
+│   │   │       │   ├── IBuf.scala
+│   │   │       │   ├── ICache.scala
+│   │   │       │   ├── IDecode.scala
+│   │   │       │   ├── Instructions.scala
+│   │   │       │   ├── Multiplier.scala
+│   │   │       │   ├── NBDcache.scala
+│   │   │       │   ├── PMP.scala
+│   │   │       │   ├── PTW.scala
+│   │   │       │   ├── RVC.scala
+│   │   │       │   ├── RocketCore.scala
+│   │   │       │   ├── ScratchpadSlavePort.scala
+│   │   │       │   ├── SimpleHellaCacheIF.scala
+│   │   │       │   ├── TLB.scala
+│   │   │       │   ├── TLBPermissions.scala
+│   │   │       │   └── package.scala
+│   │   │       │   └── SCIE.scala
+│   │   │       │   ├── RocketChipAnnotations.scala
+│   │   │       │   ├── RocketChipCli.scala
+│   │   │       │   ├── RocketChipOptions.scala
+│   │   │       │   ├── package.scala
+│   │   │       │       ├── AddDefaultTests.scala
+│   │   │       │       ├── Checks.scala
+│   │   │       │       ├── GenerateArtefacts.scala
+│   │   │       │       ├── GenerateFirrtlAnnos.scala
+│   │   │       │       ├── GenerateROMs.scala
+│   │   │       │       ├── GenerateTestSuiteMakefrags.scala
+│   │   │       │       ├── PreElaboration.scala
+│   │   │       │       └── TransformAnnotations.scala
+│   │   │       │   ├── Attachable.scala
+│   │   │       │   ├── BankedL2Params.scala
+│   │   │       │   ├── BaseSubsystem.scala
+│   │   │       │   ├── BusTopology.scala
+│   │   │       │   ├── Configs.scala
+│   │   │       │   ├── CrossingWrapper.scala
+│   │   │       │   ├── FrontBus.scala
+│   │   │       │   ├── HasTiles.scala
+│   │   │       │   ├── InterruptBus.scala
+│   │   │       │   ├── MemoryBus.scala
+│   │   │       │   ├── PeripheryBus.scala
+│   │   │       │   ├── Ports.scala
+│   │   │       │   ├── RTC.scala
+│   │   │       │   ├── RocketSubsystem.scala
+│   │   │       │   └── SystemBus.scala
+│   │   │       │   ├── Configs.scala
+│   │   │       │   ├── ExampleRocketSystem.scala
+│   │   │       │   ├── RocketChipStageGenerator.scala
+│   │   │       │   ├── RocketTestSuite.scala
+│   │   │       │   ├── SimAXIMem.scala
+│   │   │       │   └── TestHarness.scala
+│   │   │       │   ├── BaseTile.scala
+│   │   │       │   ├── BusErrorUnit.scala
+│   │   │       │   ├── Core.scala
+│   │   │       │   ├── CustomCSRs.scala
+│   │   │       │   ├── FPU.scala
+│   │   │       │   ├── Interrupts.scala
+│   │   │       │   ├── L1Cache.scala
+│   │   │       │   ├── LazyRoCC.scala
+│   │   │       │   ├── LookupByHartId.scala
+│   │   │       │   ├── RocketTile.scala
+│   │   │       │   └── TilePRCIDomain.scala
+│   │   │       │   ├── AddressAdjuster.scala
+│   │   │       │   ├── Arbiter.scala
+│   │   │       │   ├── AsyncCrossing.scala
+│   │   │       │   ├── AtomicAutomata.scala
+│   │   │       │   ├── Atomics.scala
+│   │   │       │   ├── BankBinder.scala
+│   │   │       │   ├── BlockDuringReset.scala
+│   │   │       │   ├── Broadcast.scala
+│   │   │       │   ├── Buffer.scala
+│   │   │       │   ├── Bundle_ACancel.scala
+│   │   │       │   ├── Bundles.scala
+│   │   │       │   ├── BusWrapper.scala
+│   │   │       │   ├── CacheCork.scala
+│   │   │       │   ├── Credited.scala
+│   │   │       │   ├── CrossingHelper.scala
+│   │   │       │   ├── Delayer.scala
+│   │   │       │   ├── Edges.scala
+│   │   │       │   ├── ErrorEvaluator.scala
+│   │   │       │   ├── FIFOFixer.scala
+│   │   │       │   ├── Filter.scala
+│   │   │       │   ├── Fragmenter.scala
+│   │   │       │   ├── Fuzzer.scala
+│   │   │       │   ├── HintHandler.scala
+│   │   │       │   ├── Isolation.scala
+│   │   │       │   ├── Jbar.scala
+│   │   │       │   ├── Map.scala
+│   │   │       │   ├── Metadata.scala
+│   │   │       │   ├── Monitor.scala
+│   │   │       │   ├── Nodes.scala
+│   │   │       │   ├── Parameters.scala
+│   │   │       │   ├── PatternPusher.scala
+│   │   │       │   ├── ProbePicker.scala
+│   │   │       │   ├── RAMModel.scala
+│   │   │       │   ├── RationalCrossing.scala
+│   │   │       │   ├── RegionReplication.scala
+│   │   │       │   ├── RegisterRouter.scala
+│   │   │       │   ├── RegisterRouterTest.scala
+│   │   │       │   ├── SRAM.scala
+│   │   │       │   ├── SourceShrinker.scala
+│   │   │       │   ├── ToAHB.scala
+│   │   │       │   ├── ToAPB.scala
+│   │   │       │   ├── ToAXI4.scala
+│   │   │       │   ├── WidthWidget.scala
+│   │   │       │   ├── Xbar.scala
+│   │   │       │   └── package.scala
+│   │   │       │       └── RenameDesiredNames.scala
+│   │   │       │   ├── Configs.scala
+│   │   │       │   ├── Generator.scala
+│   │   │       │   ├── TestGenerator.scala
+│   │   │       │   ├── TestHarness.scala
+│   │   │       │   ├── UnitTest.scala
+│   │   │       │   └── package.scala
+│   │   │           ├── Annotations.scala
+│   │   │           ├── Arbiters.scala
+│   │   │           ├── AsyncQueue.scala
+│   │   │           ├── AsyncResetReg.scala
+│   │   │           ├── BlockDuringReset.scala
+│   │   │           ├── Blockable.scala
+│   │   │           ├── Broadcaster.scala
+│   │   │           ├── BundleMap.scala
+│   │   │           ├── CRC.scala
+│   │   │           ├── ClockDivider.scala
+│   │   │           ├── ClockGate.scala
+│   │   │           ├── CompileOptions.scala
+│   │   │           ├── CoreMonitor.scala
+│   │   │           ├── Counters.scala
+│   │   │           ├── CreditedIO.scala
+│   │   │           ├── Crossing.scala
+│   │   │           ├── DescribedSRAM.scala
+│   │   │           ├── ECC.scala
+│   │   │           ├── ElaborationArtefactAnnotation.scala
+│   │   │           ├── Frequency.scala
+│   │   │           ├── GeneratorUtils.scala
+│   │   │           ├── GenericParameterizedBundle.scala
+│   │   │           ├── HellaQueue.scala
+│   │   │           ├── HeterogeneousBag.scala
+│   │   │           ├── IDPool.scala
+│   │   │           ├── IdentityModule.scala
+│   │   │           ├── LCG.scala
+│   │   │           ├── LanePositionedQueue.scala
+│   │   │           ├── LatencyPipe.scala
+│   │   │           ├── Location.scala
+│   │   │           ├── Misc.scala
+│   │   │           ├── MultiLaneQueue.scala
+│   │   │           ├── MultiPortQueue.scala
+│   │   │           ├── MultiWidthFifo.scala
+│   │   │           ├── MuxLiteral.scala
+│   │   │           ├── PSDTestMode.scala
+│   │   │           ├── PlusArg.scala
+│   │   │           ├── PrefixSum.scala
+│   │   │           ├── Property.scala
+│   │   │           ├── ROMGenerator.scala
+│   │   │           ├── RationalCrossing.scala
+│   │   │           ├── ReadyValidCancel.scala
+│   │   │           ├── RecordMap.scala
+│   │   │           ├── ReduceOthers.scala
+│   │   │           ├── ReorderQueue.scala
+│   │   │           ├── Repeater.scala
+│   │   │           ├── Replacement.scala
+│   │   │           ├── ResetCatchAndSync.scala
+│   │   │           ├── ScatterGather.scala
+│   │   │           ├── SeededRandom.scala
+│   │   │           ├── ShiftQueue.scala
+│   │   │           ├── ShiftReg.scala
+│   │   │           ├── SimpleProduct.scala
+│   │   │           ├── SynchronizerReg.scala
+│   │   │           ├── Timer.scala
+│   │   │           ├── TraceCoreInterface.scala
+│   │   │           └── package.scala
+│   │       └── scala
+│   │           │   └── StageGeneratorSpec.scala
+│   │           │       └── LintConflictingModuleNamesSpec.scala
+│   │                   └── RenameDesiredNamesSpec.scala
+│   │   ├── scala-2.12
+│   │   │   │   │       │   ├── SuperscalarEventSets.class
+│   │   │   │                       └── scala
+│   │   │   │                           │   │   ├── AHBLite.scala.semanticdb
+│   │   │   │                           │   │   ├── Bundles.scala.semanticdb
+│   │   │   │                           │   │   ├── Monitor.scala.semanticdb
+│   │   │   │                           │   │   ├── Nodes.scala.semanticdb
+│   │   │   │                           │   │   ├── Parameters.scala.semanticdb
+│   │   │   │                           │   │   ├── Protocol.scala.semanticdb
+│   │   │   │                           │   │   ├── RegisterRouter.scala.semanticdb
+│   │   │   │                           │   │   ├── SRAM.scala.semanticdb
+│   │   │   │                           │   │   ├── Test.scala.semanticdb
+│   │   │   │                           │   │   ├── ToTL.scala.semanticdb
+│   │   │   │                           │   │   ├── Xbar.scala.semanticdb
+│   │   │   │                           │   │   └── package.scala.semanticdb
+│   │   │   │                           │   │   ├── Bundles.scala.semanticdb
+│   │   │   │                           │   │   ├── Monitor.scala.semanticdb
+│   │   │   │                           │   │   ├── Nodes.scala.semanticdb
+│   │   │   │                           │   │   ├── Parameters.scala.semanticdb
+│   │   │   │                           │   │   ├── Protocol.scala.semanticdb
+│   │   │   │                           │   │   ├── RegisterRouter.scala.semanticdb
+│   │   │   │                           │   │   ├── SRAM.scala.semanticdb
+│   │   │   │                           │   │   ├── Test.scala.semanticdb
+│   │   │   │                           │   │   ├── ToTL.scala.semanticdb
+│   │   │   │                           │   │   ├── Xbar.scala.semanticdb
+│   │   │   │                           │   │   └── package.scala.semanticdb
+│   │   │   │                           │   │   ├── AsyncCrossing.scala.semanticdb
+│   │   │   │                           │   │   ├── Buffer.scala.semanticdb
+│   │   │   │                           │   │   ├── Bundles.scala.semanticdb
+│   │   │   │                           │   │   ├── Credited.scala.semanticdb
+│   │   │   │                           │   │   ├── CrossingHelper.scala.semanticdb
+│   │   │   │                           │   │   ├── Deinterleaver.scala.semanticdb
+│   │   │   │                           │   │   ├── Delayer.scala.semanticdb
+│   │   │   │                           │   │   ├── Filter.scala.semanticdb
+│   │   │   │                           │   │   ├── Fragmenter.scala.semanticdb
+│   │   │   │                           │   │   ├── IdIndexer.scala.semanticdb
+│   │   │   │                           │   │   ├── Monitor.scala.semanticdb
+│   │   │   │                           │   │   ├── Nodes.scala.semanticdb
+│   │   │   │                           │   │   ├── Parameters.scala.semanticdb
+│   │   │   │                           │   │   ├── Protocol.scala.semanticdb
+│   │   │   │                           │   │   ├── RegisterRouter.scala.semanticdb
+│   │   │   │                           │   │   ├── SRAM.scala.semanticdb
+│   │   │   │                           │   │   ├── Test.scala.semanticdb
+│   │   │   │                           │   │   ├── ToTL.scala.semanticdb
+│   │   │   │                           │   │   ├── UserYanker.scala.semanticdb
+│   │   │   │                           │   │   ├── Xbar.scala.semanticdb
+│   │   │   │                           │   │   └── package.scala.semanticdb
+│   │   │   │                           │   │   ├── Buffer.scala.semanticdb
+│   │   │   │                           │   │   ├── Bundles.scala.semanticdb
+│   │   │   │                           │   │   ├── Nodes.scala.semanticdb
+│   │   │   │                           │   │   ├── Parameters.scala.semanticdb
+│   │   │   │                           │   │   ├── Xbar.scala.semanticdb
+│   │   │   │                           │   │   └── package.scala.semanticdb
+│   │   │   │                           │   └── package.scala.semanticdb
+│   │   │   │                           │   └── Select.scala.semanticdb
+│   │   │   │                           │   └── RenameModulesAspect.scala.semanticdb
+│   │   │   │                           │   │   ├── APB.scala.semanticdb
+│   │   │   │                           │   │   ├── Custom.scala.semanticdb
+│   │   │   │                           │   │   ├── DMI.scala.semanticdb
+│   │   │   │                           │   │   ├── Debug.scala.semanticdb
+│   │   │   │                           │   │   ├── DebugRomContents.scala.semanticdb
+│   │   │   │                           │   │   ├── DebugRomNonzeroContents.scala.semanticdb
+│   │   │   │                           │   │   ├── DebugTransport.scala.semanticdb
+│   │   │   │                           │   │   ├── Periphery.scala.semanticdb
+│   │   │   │                           │   │   ├── SBA.scala.semanticdb
+│   │   │   │                           │   │   ├── abstract_commands.scala.semanticdb
+│   │   │   │                           │   │   └── dm_registers.scala.semanticdb
+│   │   │   │                           │       ├── BootROM.scala.semanticdb
+│   │   │   │                           │       ├── BusBlocker.scala.semanticdb
+│   │   │   │                           │       ├── BusBypass.scala.semanticdb
+│   │   │   │                           │       ├── CLINT.scala.semanticdb
+│   │   │   │                           │       ├── CanHaveBuiltInDevices.scala.semanticdb
+│   │   │   │                           │       ├── ClockBlocker.scala.semanticdb
+│   │   │   │                           │       ├── Deadlock.scala.semanticdb
+│   │   │   │                           │       ├── DevNull.scala.semanticdb
+│   │   │   │                           │       ├── Error.scala.semanticdb
+│   │   │   │                           │       ├── MaskROM.scala.semanticdb
+│   │   │   │                           │       ├── MasterMux.scala.semanticdb
+│   │   │   │                           │       ├── PhysicalFilter.scala.semanticdb
+│   │   │   │                           │       ├── Plic.scala.semanticdb
+│   │   │   │                           │       ├── TestRAM.scala.semanticdb
+│   │   │   │                           │       └── Zero.scala.semanticdb
+│   │   │   │                           │   ├── AddressDecoder.scala.semanticdb
+│   │   │   │                           │   ├── AddressRange.scala.semanticdb
+│   │   │   │                           │   ├── BundleBridge.scala.semanticdb
+│   │   │   │                           │   ├── ClockDomain.scala.semanticdb
+│   │   │   │                           │   ├── Clone.scala.semanticdb
+│   │   │   │                           │   ├── CloneModule.scala.semanticdb
+│   │   │   │                           │   ├── DeviceTree.scala.semanticdb
+│   │   │   │                           │   ├── FixedClockResource.scala.semanticdb
+│   │   │   │                           │   ├── JSON.scala.semanticdb
+│   │   │   │                           │   ├── LazyModule.scala.semanticdb
+│   │   │   │                           │   ├── Nodes.scala.semanticdb
+│   │   │   │                           │   ├── Parameters.scala.semanticdb
+│   │   │   │                           │   ├── Resources.scala.semanticdb
+│   │   │   │                           │   ├── SRAM.scala.semanticdb
+│   │   │   │                           │   ├── Unreachable.scala.semanticdb
+│   │   │   │                           │   ├── ValName.scala.semanticdb
+│   │   │   │                           │   └── package.scala.semanticdb
+│   │   │   │                           │   ├── ConstructOM.scala.semanticdb
+│   │   │   │                           │   ├── DiplomaticObjectModelUtils.scala.semanticdb
+│   │   │   │                           │   ├── HasLogicalTreeNode.scala.semanticdb
+│   │   │   │                           │   │   ├── LogicalTreeNode.scala.semanticdb
+│   │   │   │                           │   │   ├── LogicalTrees.scala.semanticdb
+│   │   │   │                           │   │   └── RocketLogicalTreeNode.scala.semanticdb
+│   │   │   │                           │       ├── CustomISAExtensions.scala.semanticdb
+│   │   │   │                           │       ├── ISASpecifications.scala.semanticdb
+│   │   │   │                           │       ├── OMAddressing.scala.semanticdb
+│   │   │   │                           │       ├── OMBase.scala.semanticdb
+│   │   │   │                           │       ├── OMBranchPredictor.scala.semanticdb
+│   │   │   │                           │       ├── OMBusError.scala.semanticdb
+│   │   │   │                           │       ├── OMBusMemory.scala.semanticdb
+│   │   │   │                           │       ├── OMCLINT.scala.semanticdb
+│   │   │   │                           │       ├── OMCaches.scala.semanticdb
+│   │   │   │                           │       ├── OMCore.scala.semanticdb
+│   │   │   │                           │       ├── OMCoreComplex.scala.semanticdb
+│   │   │   │                           │       ├── OMDebug.scala.semanticdb
+│   │   │   │                           │       ├── OMDevice.scala.semanticdb
+│   │   │   │                           │       ├── OMErrorDevice.scala.semanticdb
+│   │   │   │                           │       ├── OMFPU.scala.semanticdb
+│   │   │   │                           │       ├── OMISA.scala.semanticdb
+│   │   │   │                           │       ├── OMInterrupts.scala.semanticdb
+│   │   │   │                           │       ├── OMMemory.scala.semanticdb
+│   │   │   │                           │       ├── OMMulDiv.scala.semanticdb
+│   │   │   │                           │       ├── OMPLIC.scala.semanticdb
+│   │   │   │                           │       ├── OMPMP.scala.semanticdb
+│   │   │   │                           │       ├── OMPerformanceMonitor.scala.semanticdb
+│   │   │   │                           │       ├── OMPorts.scala.semanticdb
+│   │   │   │                           │       ├── OMRTLModule.scala.semanticdb
+│   │   │   │                           │       ├── OMRegFieldAccessType.scala.semanticdb
+│   │   │   │                           │       ├── OMRegFieldRdAction.scala.semanticdb
+│   │   │   │                           │       ├── OMRegFieldWrType.scala.semanticdb
+│   │   │   │                           │       ├── OMRocketCore.scala.semanticdb
+│   │   │   │                           │       ├── OMSRAM.scala.semanticdb
+│   │   │   │                           │       ├── OMSpecification.scala.semanticdb
+│   │   │   │                           │       ├── OMTestHarness.scala.semanticdb
+│   │   │   │                           │       ├── OMUTLB.scala.semanticdb
+│   │   │   │                           │       └── OMZeroDevice.scala.semanticdb
+│   │   │   │                           │   └── ExampleDevice.scala.semanticdb
+│   │   │   │                           │   └── FormalUtils.scala.semanticdb
+│   │   │   │                           │   ├── Configs.scala.semanticdb
+│   │   │   │                           │   ├── DummyPTW.scala.semanticdb
+│   │   │   │                           │   ├── Generator.scala.semanticdb
+│   │   │   │                           │   ├── GroundTestSubsystem.scala.semanticdb
+│   │   │   │                           │   ├── Package.scala.semanticdb
+│   │   │   │                           │   ├── Status.scala.semanticdb
+│   │   │   │                           │   ├── TestHarness.scala.semanticdb
+│   │   │   │                           │   ├── Tile.scala.semanticdb
+│   │   │   │                           │   └── TraceGen.scala.semanticdb
+│   │   │   │                           │   ├── BlockDuringReset.scala.semanticdb
+│   │   │   │                           │   ├── Bundles.scala.semanticdb
+│   │   │   │                           │   ├── Crossing.scala.semanticdb
+│   │   │   │                           │   ├── CrossingHelper.scala.semanticdb
+│   │   │   │                           │   ├── Nodes.scala.semanticdb
+│   │   │   │                           │   ├── NullIntSource.scala.semanticdb
+│   │   │   │                           │   ├── Parameters.scala.semanticdb
+│   │   │   │                           │   ├── RegisterRouter.scala.semanticdb
+│   │   │   │                           │   ├── Xbar.scala.semanticdb
+│   │   │   │                           │   └── package.scala.semanticdb
+│   │   │   │                           │   ├── JtagShifter.scala.semanticdb
+│   │   │   │                           │   ├── JtagStateMachine.scala.semanticdb
+│   │   │   │                           │   ├── JtagTap.scala.semanticdb
+│   │   │   │                           │   ├── JtagUtils.scala.semanticdb
+│   │   │   │                           │   ├── Utils.scala.semanticdb
+│   │   │   │                           │   └── package.scala.semanticdb
+│   │   │   │                           │   ├── LintAnnotation.scala.semanticdb
+│   │   │   │                           │   ├── LintException.scala.semanticdb
+│   │   │   │                           │   ├── LintReporter.scala.semanticdb
+│   │   │   │                           │   ├── Linter.scala.semanticdb
+│   │   │   │                           │       ├── LintAnonymousRegisters.scala.semanticdb
+│   │   │   │                           │       ├── LintConflictingModuleNames.scala.semanticdb
+│   │   │   │                           │       ├── LintRule.scala.semanticdb
+│   │   │   │                           │       ├── LintTruncatingWidths.scala.semanticdb
+│   │   │   │                           │       └── package.scala.semanticdb
+│   │   │   │                           ├── package.scala.semanticdb
+│   │   │   │                           │   ├── BundleBridgeBlockDuringReset.scala.semanticdb
+│   │   │   │                           │   ├── ClockBundles.scala.semanticdb
+│   │   │   │                           │   ├── ClockDivider.scala.semanticdb
+│   │   │   │                           │   ├── ClockDomain.scala.semanticdb
+│   │   │   │                           │   ├── ClockGroup.scala.semanticdb
+│   │   │   │                           │   ├── ClockGroupDriver.scala.semanticdb
+│   │   │   │                           │   ├── ClockNodes.scala.semanticdb
+│   │   │   │                           │   ├── ClockParameters.scala.semanticdb
+│   │   │   │                           │   ├── IOHelper.scala.semanticdb
+│   │   │   │                           │   ├── ResetCrossingType.scala.semanticdb
+│   │   │   │                           │   ├── ResetStretcher.scala.semanticdb
+│   │   │   │                           │   ├── ResetSynchronizer.scala.semanticdb
+│   │   │   │                           │   ├── ResetWrangler.scala.semanticdb
+│   │   │   │                           │   ├── TestClockSource.scala.semanticdb
+│   │   │   │                           │   └── package.scala.semanticdb
+│   │   │   │                           │   ├── Annotation.scala.semanticdb
+│   │   │   │                           │   ├── DescribedReg.scala.semanticdb
+│   │   │   │                           │   ├── RegField.scala.semanticdb
+│   │   │   │                           │   ├── RegFieldDesc.scala.semanticdb
+│   │   │   │                           │   ├── RegMapper.scala.semanticdb
+│   │   │   │                           │   ├── RegisterCrossing.scala.semanticdb
+│   │   │   │                           │   ├── RegisterRouter.scala.semanticdb
+│   │   │   │                           │   └── Test.scala.semanticdb
+│   │   │   │                           │   ├── ALU.scala.semanticdb
+│   │   │   │                           │   ├── AMOALU.scala.semanticdb
+│   │   │   │                           │   ├── BTB.scala.semanticdb
+│   │   │   │                           │   ├── Breakpoint.scala.semanticdb
+│   │   │   │                           │   ├── CSR.scala.semanticdb
+│   │   │   │                           │   ├── Consts.scala.semanticdb
+│   │   │   │                           │   ├── DCache.scala.semanticdb
+│   │   │   │                           │   ├── Decode.scala.semanticdb
+│   │   │   │                           │   ├── Events.scala.semanticdb
+│   │   │   │                           │   ├── Frontend.scala.semanticdb
+│   │   │   │                           │   ├── HellaCache.scala.semanticdb
+│   │   │   │                           │   ├── HellaCacheArbiter.scala.semanticdb
+│   │   │   │                           │   ├── IBuf.scala.semanticdb
+│   │   │   │                           │   ├── ICache.scala.semanticdb
+│   │   │   │                           │   ├── IDecode.scala.semanticdb
+│   │   │   │                           │   ├── Instructions.scala.semanticdb
+│   │   │   │                           │   ├── Multiplier.scala.semanticdb
+│   │   │   │                           │   ├── NBDcache.scala.semanticdb
+│   │   │   │                           │   ├── PMP.scala.semanticdb
+│   │   │   │                           │   ├── PTW.scala.semanticdb
+│   │   │   │                           │   ├── RVC.scala.semanticdb
+│   │   │   │                           │   ├── RocketCore.scala.semanticdb
+│   │   │   │                           │   ├── ScratchpadSlavePort.scala.semanticdb
+│   │   │   │                           │   ├── SimpleHellaCacheIF.scala.semanticdb
+│   │   │   │                           │   ├── TLB.scala.semanticdb
+│   │   │   │                           │   ├── TLBPermissions.scala.semanticdb
+│   │   │   │                           │   └── package.scala.semanticdb
+│   │   │   │                           │   └── SCIE.scala.semanticdb
+│   │   │   │                           │   ├── RocketChipAnnotations.scala.semanticdb
+│   │   │   │                           │   ├── RocketChipCli.scala.semanticdb
+│   │   │   │                           │   ├── RocketChipOptions.scala.semanticdb
+│   │   │   │                           │   ├── package.scala.semanticdb
+│   │   │   │                           │       ├── AddDefaultTests.scala.semanticdb
+│   │   │   │                           │       ├── Checks.scala.semanticdb
+│   │   │   │                           │       ├── GenerateArtefacts.scala.semanticdb
+│   │   │   │                           │       ├── GenerateFirrtlAnnos.scala.semanticdb
+│   │   │   │                           │       ├── GenerateROMs.scala.semanticdb
+│   │   │   │                           │       ├── GenerateTestSuiteMakefrags.scala.semanticdb
+│   │   │   │                           │       ├── PreElaboration.scala.semanticdb
+│   │   │   │                           │       └── TransformAnnotations.scala.semanticdb
+│   │   │   │                           │   ├── Attachable.scala.semanticdb
+│   │   │   │                           │   ├── BankedL2Params.scala.semanticdb
+│   │   │   │                           │   ├── BaseSubsystem.scala.semanticdb
+│   │   │   │                           │   ├── BusTopology.scala.semanticdb
+│   │   │   │                           │   ├── Configs.scala.semanticdb
+│   │   │   │                           │   ├── CrossingWrapper.scala.semanticdb
+│   │   │   │                           │   ├── FrontBus.scala.semanticdb
+│   │   │   │                           │   ├── HasTiles.scala.semanticdb
+│   │   │   │                           │   ├── InterruptBus.scala.semanticdb
+│   │   │   │                           │   ├── MemoryBus.scala.semanticdb
+│   │   │   │                           │   ├── PeripheryBus.scala.semanticdb
+│   │   │   │                           │   ├── Ports.scala.semanticdb
+│   │   │   │                           │   ├── RTC.scala.semanticdb
+│   │   │   │                           │   ├── RocketSubsystem.scala.semanticdb
+│   │   │   │                           │   └── SystemBus.scala.semanticdb
+│   │   │   │                           │   ├── Configs.scala.semanticdb
+│   │   │   │                           │   ├── ExampleRocketSystem.scala.semanticdb
+│   │   │   │                           │   ├── RocketChipStageGenerator.scala.semanticdb
+│   │   │   │                           │   ├── RocketTestSuite.scala.semanticdb
+│   │   │   │                           │   ├── SimAXIMem.scala.semanticdb
+│   │   │   │                           │   └── TestHarness.scala.semanticdb
+│   │   │   │                           │   ├── BaseTile.scala.semanticdb
+│   │   │   │                           │   ├── BusErrorUnit.scala.semanticdb
+│   │   │   │                           │   ├── Core.scala.semanticdb
+│   │   │   │                           │   ├── CustomCSRs.scala.semanticdb
+│   │   │   │                           │   ├── FPU.scala.semanticdb
+│   │   │   │                           │   ├── Interrupts.scala.semanticdb
+│   │   │   │                           │   ├── L1Cache.scala.semanticdb
+│   │   │   │                           │   ├── LazyRoCC.scala.semanticdb
+│   │   │   │                           │   ├── LookupByHartId.scala.semanticdb
+│   │   │   │                           │   ├── RocketTile.scala.semanticdb
+│   │   │   │                           │   └── TilePRCIDomain.scala.semanticdb
+│   │   │   │                           │   ├── AddressAdjuster.scala.semanticdb
+│   │   │   │                           │   ├── Arbiter.scala.semanticdb
+│   │   │   │                           │   ├── AsyncCrossing.scala.semanticdb
+│   │   │   │                           │   ├── AtomicAutomata.scala.semanticdb
+│   │   │   │                           │   ├── Atomics.scala.semanticdb
+│   │   │   │                           │   ├── BankBinder.scala.semanticdb
+│   │   │   │                           │   ├── BlockDuringReset.scala.semanticdb
+│   │   │   │                           │   ├── Broadcast.scala.semanticdb
+│   │   │   │                           │   ├── Buffer.scala.semanticdb
+│   │   │   │                           │   ├── Bundle_ACancel.scala.semanticdb
+│   │   │   │                           │   ├── Bundles.scala.semanticdb
+│   │   │   │                           │   ├── BusWrapper.scala.semanticdb
+│   │   │   │                           │   ├── CacheCork.scala.semanticdb
+│   │   │   │                           │   ├── Credited.scala.semanticdb
+│   │   │   │                           │   ├── CrossingHelper.scala.semanticdb
+│   │   │   │                           │   ├── Delayer.scala.semanticdb
+│   │   │   │                           │   ├── Edges.scala.semanticdb
+│   │   │   │                           │   ├── ErrorEvaluator.scala.semanticdb
+│   │   │   │                           │   ├── FIFOFixer.scala.semanticdb
+│   │   │   │                           │   ├── Filter.scala.semanticdb
+│   │   │   │                           │   ├── Fragmenter.scala.semanticdb
+│   │   │   │                           │   ├── Fuzzer.scala.semanticdb
+│   │   │   │                           │   ├── HintHandler.scala.semanticdb
+│   │   │   │                           │   ├── Isolation.scala.semanticdb
+│   │   │   │                           │   ├── Jbar.scala.semanticdb
+│   │   │   │                           │   ├── Map.scala.semanticdb
+│   │   │   │                           │   ├── Metadata.scala.semanticdb
+│   │   │   │                           │   ├── Monitor.scala.semanticdb
+│   │   │   │                           │   ├── Nodes.scala.semanticdb
+│   │   │   │                           │   ├── Parameters.scala.semanticdb
+│   │   │   │                           │   ├── PatternPusher.scala.semanticdb
+│   │   │   │                           │   ├── ProbePicker.scala.semanticdb
+│   │   │   │                           │   ├── RAMModel.scala.semanticdb
+│   │   │   │                           │   ├── RationalCrossing.scala.semanticdb
+│   │   │   │                           │   ├── RegionReplication.scala.semanticdb
+│   │   │   │                           │   ├── RegisterRouter.scala.semanticdb
+│   │   │   │                           │   ├── RegisterRouterTest.scala.semanticdb
+│   │   │   │                           │   ├── SRAM.scala.semanticdb
+│   │   │   │                           │   ├── SourceShrinker.scala.semanticdb
+│   │   │   │                           │   ├── ToAHB.scala.semanticdb
+│   │   │   │                           │   ├── ToAPB.scala.semanticdb
+│   │   │   │                           │   ├── ToAXI4.scala.semanticdb
+│   │   │   │                           │   ├── WidthWidget.scala.semanticdb
+│   │   │   │                           │   ├── Xbar.scala.semanticdb
+│   │   │   │                           │   └── package.scala.semanticdb
+│   │   │   │                           │       └── RenameDesiredNames.scala.semanticdb
+│   │   │   │                           │   ├── Configs.scala.semanticdb
+│   │   │   │                           │   ├── Generator.scala.semanticdb
+│   │   │   │                           │   ├── TestGenerator.scala.semanticdb
+│   │   │   │                           │   ├── TestHarness.scala.semanticdb
+│   │   │   │                           │   ├── UnitTest.scala.semanticdb
+│   │   │   │                           │   └── package.scala.semanticdb
+│   │   │   │                               ├── Annotations.scala.semanticdb
+│   │   │   │                               ├── Arbiters.scala.semanticdb
+│   │   │   │                               ├── AsyncQueue.scala.semanticdb
+│   │   │   │                               ├── AsyncResetReg.scala.semanticdb
+│   │   │   │                               ├── BlockDuringReset.scala.semanticdb
+│   │   │   │                               ├── Blockable.scala.semanticdb
+│   │   │   │                               ├── Broadcaster.scala.semanticdb
+│   │   │   │                               ├── BundleMap.scala.semanticdb
+│   │   │   │                               ├── CRC.scala.semanticdb
+│   │   │   │                               ├── ClockDivider.scala.semanticdb
+│   │   │   │                               ├── ClockGate.scala.semanticdb
+│   │   │   │                               ├── CompileOptions.scala.semanticdb
+│   │   │   │                               ├── CoreMonitor.scala.semanticdb
+│   │   │   │                               ├── Counters.scala.semanticdb
+│   │   │   │                               ├── CreditedIO.scala.semanticdb
+│   │   │   │                               ├── Crossing.scala.semanticdb
+│   │   │   │                               ├── DescribedSRAM.scala.semanticdb
+│   │   │   │                               ├── ECC.scala.semanticdb
+│   │   │   │                               ├── ElaborationArtefactAnnotation.scala.semanticdb
+│   │   │   │                               ├── Frequency.scala.semanticdb
+│   │   │   │                               ├── GeneratorUtils.scala.semanticdb
+│   │   │   │                               ├── GenericParameterizedBundle.scala.semanticdb
+│   │   │   │                               ├── HellaQueue.scala.semanticdb
+│   │   │   │                               ├── HeterogeneousBag.scala.semanticdb
+│   │   │   │                               ├── IDPool.scala.semanticdb
+│   │   │   │                               ├── IdentityModule.scala.semanticdb
+│   │   │   │                               ├── LCG.scala.semanticdb
+│   │   │   │                               ├── LanePositionedQueue.scala.semanticdb
+│   │   │   │                               ├── LatencyPipe.scala.semanticdb
+│   │   │   │                               ├── Location.scala.semanticdb
+│   │   │   │                               ├── Misc.scala.semanticdb
+│   │   │   │                               ├── MultiLaneQueue.scala.semanticdb
+│   │   │   │                               ├── MultiPortQueue.scala.semanticdb
+│   │   │   │                               ├── MultiWidthFifo.scala.semanticdb
+│   │   │   │                               ├── MuxLiteral.scala.semanticdb
+│   │   │   │                               ├── PSDTestMode.scala.semanticdb
+│   │   │   │                               ├── PlusArg.scala.semanticdb
+│   │   │   │                               ├── PrefixSum.scala.semanticdb
+│   │   │   │                               ├── Property.scala.semanticdb
+│   │   │   │                               ├── ROMGenerator.scala.semanticdb
+│   │   │   │                               ├── RationalCrossing.scala.semanticdb
+│   │   │   │                               ├── ReadyValidCancel.scala.semanticdb
+│   │   │   │                               ├── RecordMap.scala.semanticdb
+│   │   │   │                               ├── ReduceOthers.scala.semanticdb
+│   │   │   │                               ├── ReorderQueue.scala.semanticdb
+│   │   │   │                               ├── Repeater.scala.semanticdb
+│   │   │   │                               ├── Replacement.scala.semanticdb
+│   │   │   │                               ├── ResetCatchAndSync.scala.semanticdb
+│   │   │   │                               ├── ScatterGather.scala.semanticdb
+│   │   │   │                               ├── SeededRandom.scala.semanticdb
+│   │   │   │                               ├── ShiftQueue.scala.semanticdb
+│   │   │   │                               ├── ShiftReg.scala.semanticdb
+│   │   │   │                               ├── SimpleProduct.scala.semanticdb
+│   │   │   │                               ├── SynchronizerReg.scala.semanticdb
+│   │   │   │                               ├── Timer.scala.semanticdb
+│   │   │   │                               ├── TraceCoreInterface.scala.semanticdb
+│   │   │   │                               └── package.scala.semanticdb
+│   │       │   │               │           └── scalap
+│   │       │   │               │               └── scalasig
+│   │       │   │               │           └── nscala_time
+│   │       │   │               │   ├── LICENSE_scala-library
+│   │       │   │               │   ├── NOTICE_scala-library
+│   │       │   │               │   └── scala
+│   │       │   │               │   │       │   ├── SuperscalarEventSets.class
+│   │       │   │               │   │   │   │       └── scala
+│   │       │   │               │   │   │   │           │   ├── AddDescriptionNodes.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── Compiler.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── DependencyAPIMigration.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── EmissionOption.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── Emitter.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── FileUtils.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── FirrtlException.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── Implicits.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── LexerHelper.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── LoweringCompilers.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── Mappers.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── Namespace.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── Parser.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── PrimOps.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── RenameMap.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── Utils.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── Visitor.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── WIR.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── CircuitGraph.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ConnectionGraph.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── GetNamespace.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── IRLookup.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── InstanceGraph.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── InstanceKeyGraph.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── NodeCount.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   └── SymbolTable.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Annotation.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── AnnotationUtils.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── JsonProtocol.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── LoadMemoryAnnotation.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── MemoryInitAnnotation.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── PresetAnnotations.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Target.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── TargetToken.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── TargetUtils.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   └── DuplicationHelper.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── CleanupNamedTargets.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       └── EliminateTargetPaths.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   │   └── RtlilEmitter.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │       ├── Btor2Serializer.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │       ├── FirrtlExpressionSemantics.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │       ├── FirrtlToTransitionSystem.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │       ├── SMTCommand.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │       ├── SMTEmitter.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │       ├── SMTExpr.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │       ├── SMTExprMap.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │       ├── SMTExprSerializer.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │       ├── SMTLibSerializer.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │       ├── SMTTransitionSystemEncoder.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │       ├── StutteringClockTransform.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │       ├── TransitionSystem.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │       ├── UninterpretedModuleAnnotation.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │           ├── DefRandom.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │           ├── InvalidToRandomPass.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │           └── UndefinedMemoryBehaviorPass.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   └── FirrtlEmitter.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   └── ProtoBufEmitter.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── LegalizeVerilog.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── MinimumVerilogEmitter.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── SystemVerilogEmitter.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       └── VerilogEmitter.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   └── CheckResets.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Constraint.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ConstraintSolver.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Inequality.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── IsAdd.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── IsFloor.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── IsKnown.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── IsMax.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── IsMin.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── IsMul.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── IsNeg.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── IsPow.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   └── IsVar.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   └── LetterCaseTransform.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── DiGraph.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── EdgeData.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── EulerTour.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   └── RenderDiGraph.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── IR.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Serializer.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   └── StructuralHash.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── DependencyManager.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Exceptions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ExitCodes.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── OptionParser.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── OptionsView.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Phase.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Registration.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Shell.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Stage.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── StageAnnotations.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── StageOptions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── StageUtils.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── package.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── AddDefaults.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── Checks.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── ConvertLegacyAnnotations.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── DeletedWrapper.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── GetIncludes.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       └── WriteOutputAnnotations.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── package.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   └── Listener.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── CInferMDir.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── CheckChirrtl.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── CheckFlows.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── CheckHighForm.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── CheckInitialization.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── CheckTypes.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── CheckWidths.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── CommonSubexpressionElimination.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ConvertFixedToSInt.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ExpandConnects.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ExpandWhens.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── InferBinaryPoints.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── InferTypes.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── InferWidths.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Inline.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── LegalizeConnects.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── LowerTypes.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── PadWidths.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Pass.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── PullMuxes.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── RemoveAccesses.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── RemoveCHIRRTL.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── RemoveEmpty.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── RemoveIntervals.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── RemoveValidIf.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ReplaceAccesses.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ResolveFlows.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ResolveKinds.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── SplitExpressions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ToWorkingIR.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── TrimIntervals.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Uniquify.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── VerilogModulusCleanup.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── VerilogPrep.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ZeroLengthVecs.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ZeroWidth.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── ClockList.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── ClockListTransform.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── ClockListUtils.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   └── RemoveAllButClocks.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── CreateMemoryAnnotations.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── DumpMemoryAnnotations.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── InferReadWrite.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── MemConf.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── MemIR.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── MemLibOptions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── MemTransformUtils.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── MemUtils.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── RenameAnnotatedMemoryPorts.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── ReplaceMemMacros.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── ReplaceMemTransform.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── ResolveMaskGranularity.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── ResolveMemoryReference.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── SeparateWriteClocks.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── SetDefaultReadUnderWrite.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── ToMemIR.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── VerilogMemDelays.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   └── YamlUtils.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── Wiring.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── WiringTransform.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       └── WiringUtils.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── FromProto.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   └── ToProto.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── FirrtlAnnotations.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── FirrtlCli.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── FirrtlCompilerTargets.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── FirrtlOptions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── FirrtlStage.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── FirrtlStageUtils.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Forms.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── TransformManager.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── package.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── AddCircuit.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── AddDefaults.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── AddImplicitEmitter.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── AddImplicitOutputFile.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── CatchExceptions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── Checks.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── Compiler.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── ConvertCompilerAnnotations.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   └── DriverCompatibility.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── CatchCustomTransformExceptions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── CheckScalaVersion.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── Compiler.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── ExpandPrepares.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── TrackTransforms.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── UpdateAnnotations.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       └── WrappedTransform.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── BlackBoxSourceHelper.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── CheckCombLoops.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── CombineCats.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ConstantPropagation.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── CustomRadixTransform.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── DeadCodeElimination.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Dedup.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── DedupAnnotations.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── EnsureNamedStatements.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── FixAddingNegativeLiteralsTransform.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Flatten.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── FlattenRegUpdate.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── GroupComponents.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── IdentityTransform.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── InferResets.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── InlineAcrossCastsTransform.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── InlineBitExtractions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── InlineBooleanExpressions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── LegalizeClocksAndAsyncResets.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── LegalizeReductions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ManipulateNames.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── MustDedup.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── OptimizationAnnotations.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── PropagatePresetAnnotations.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── RemoveKeywordCollisions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── RemoveReset.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── RemoveWires.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── RenameModules.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ReplaceTruncatingArithmetic.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── SimplifyMems.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── SortModules.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── TopWiring.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── AssertSubmoduleAssumptions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── ConvertAsserts.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   └── RemoveVerificationStatements.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   └── package.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   └── Foreachers.scala.semanticdb
+│   │       │   │               │   │   │   │           │       ├── BackendCompilationUtilities.scala.semanticdb
+│   │       │   │               │   │   │   │           │       ├── ClassUtils.scala.semanticdb
+│   │       │   │               │   │   │   │           │       └── TestOptions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── Logger.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── LoggerAnnotations.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── LoggerOptions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── package.scala.semanticdb
+│   │       │   │               │   │   │   │           │       ├── AddDefaults.scala.semanticdb
+│   │       │   │               │   │   │   │           │       └── Checks.scala.semanticdb
+│   │       │   │               │   │   │   │               │   └── AnalyzeCircuit.scala.semanticdb
+│   │       │   │               │   │   │   │                   └── AnalyzeCircuit.scala.semanticdb
+│   │       │   │               │   │   │       └── scala-2.12
+│   │       │   │               │   │   │                       └── BuildInfo.scala.semanticdb
+│   │       │   │               │   │   │   │       └── scala
+│   │       │   │               │   │   │   │           │   ├── AddDescriptionNodes.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── Compiler.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── DependencyAPIMigration.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── EmissionOption.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── Emitter.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── FileUtils.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── FirrtlException.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── Implicits.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── LexerHelper.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── LoweringCompilers.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── Mappers.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── Namespace.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── Parser.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── PrimOps.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── RenameMap.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── Utils.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── Visitor.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── WIR.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── CircuitGraph.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ConnectionGraph.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── GetNamespace.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── IRLookup.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── InstanceGraph.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── InstanceKeyGraph.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── NodeCount.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   └── SymbolTable.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Annotation.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── AnnotationUtils.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── JsonProtocol.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── LoadMemoryAnnotation.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── MemoryInitAnnotation.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── PresetAnnotations.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Target.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── TargetToken.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── TargetUtils.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   └── DuplicationHelper.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── CleanupNamedTargets.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       └── EliminateTargetPaths.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   │   └── RtlilEmitter.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │       ├── Btor2Serializer.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │       ├── FirrtlExpressionSemantics.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │       ├── FirrtlToTransitionSystem.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │       ├── SMTCommand.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │       ├── SMTEmitter.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │       ├── SMTExpr.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │       ├── SMTExprMap.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │       ├── SMTExprSerializer.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │       ├── SMTLibSerializer.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │       ├── SMTTransitionSystemEncoder.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │       ├── StutteringClockTransform.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │       ├── TransitionSystem.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │       ├── UninterpretedModuleAnnotation.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │           ├── DefRandom.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │           ├── InvalidToRandomPass.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │           └── UndefinedMemoryBehaviorPass.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   └── FirrtlEmitter.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   └── ProtoBufEmitter.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── LegalizeVerilog.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── MinimumVerilogEmitter.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── SystemVerilogEmitter.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       └── VerilogEmitter.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   └── CheckResets.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Constraint.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ConstraintSolver.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Inequality.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── IsAdd.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── IsFloor.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── IsKnown.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── IsMax.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── IsMin.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── IsMul.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── IsNeg.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── IsPow.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   └── IsVar.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   └── LetterCaseTransform.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── DiGraph.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── EdgeData.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── EulerTour.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   └── RenderDiGraph.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── IR.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Serializer.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   └── StructuralHash.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── DependencyManager.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Exceptions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ExitCodes.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── OptionParser.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── OptionsView.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Phase.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Registration.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Shell.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Stage.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── StageAnnotations.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── StageOptions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── StageUtils.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── package.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── AddDefaults.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── Checks.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── ConvertLegacyAnnotations.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── DeletedWrapper.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── GetIncludes.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       └── WriteOutputAnnotations.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── package.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   └── Listener.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── CInferMDir.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── CheckChirrtl.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── CheckFlows.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── CheckHighForm.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── CheckInitialization.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── CheckTypes.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── CheckWidths.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── CommonSubexpressionElimination.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ConvertFixedToSInt.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ExpandConnects.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ExpandWhens.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── InferBinaryPoints.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── InferTypes.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── InferWidths.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Inline.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── LegalizeConnects.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── LowerTypes.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── PadWidths.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Pass.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── PullMuxes.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── RemoveAccesses.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── RemoveCHIRRTL.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── RemoveEmpty.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── RemoveIntervals.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── RemoveValidIf.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ReplaceAccesses.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ResolveFlows.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ResolveKinds.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── SplitExpressions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ToWorkingIR.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── TrimIntervals.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Uniquify.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── VerilogModulusCleanup.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── VerilogPrep.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ZeroLengthVecs.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ZeroWidth.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── ClockList.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── ClockListTransform.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── ClockListUtils.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   └── RemoveAllButClocks.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── CreateMemoryAnnotations.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── DumpMemoryAnnotations.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── InferReadWrite.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── MemConf.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── MemIR.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── MemLibOptions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── MemTransformUtils.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── MemUtils.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── RenameAnnotatedMemoryPorts.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── ReplaceMemMacros.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── ReplaceMemTransform.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── ResolveMaskGranularity.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── ResolveMemoryReference.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── SeparateWriteClocks.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── SetDefaultReadUnderWrite.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── ToMemIR.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── VerilogMemDelays.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   └── YamlUtils.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── Wiring.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── WiringTransform.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       └── WiringUtils.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── FromProto.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   └── ToProto.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── FirrtlAnnotations.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── FirrtlCli.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── FirrtlCompilerTargets.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── FirrtlOptions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── FirrtlStage.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── FirrtlStageUtils.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Forms.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── TransformManager.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── package.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── AddCircuit.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── AddDefaults.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── AddImplicitEmitter.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── AddImplicitOutputFile.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── CatchExceptions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── Checks.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── Compiler.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── ConvertCompilerAnnotations.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   └── DriverCompatibility.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── CatchCustomTransformExceptions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── CheckScalaVersion.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── Compiler.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── ExpandPrepares.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── TrackTransforms.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       ├── UpdateAnnotations.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │       └── WrappedTransform.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── BlackBoxSourceHelper.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── CheckCombLoops.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── CombineCats.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ConstantPropagation.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── CustomRadixTransform.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── DeadCodeElimination.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Dedup.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── DedupAnnotations.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── EnsureNamedStatements.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── FixAddingNegativeLiteralsTransform.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── Flatten.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── FlattenRegUpdate.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── GroupComponents.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── IdentityTransform.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── InferResets.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── InlineAcrossCastsTransform.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── InlineBitExtractions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── InlineBooleanExpressions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── LegalizeClocksAndAsyncResets.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── LegalizeReductions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ManipulateNames.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── MustDedup.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── OptimizationAnnotations.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── PropagatePresetAnnotations.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── RemoveKeywordCollisions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── RemoveReset.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── RemoveWires.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── RenameModules.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── ReplaceTruncatingArithmetic.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── SimplifyMems.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── SortModules.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   ├── TopWiring.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── AssertSubmoduleAssumptions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   ├── ConvertAsserts.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   │   └── RemoveVerificationStatements.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   └── package.scala.semanticdb
+│   │       │   │               │   │   │   │           │   │   └── Foreachers.scala.semanticdb
+│   │       │   │               │   │   │   │           │       ├── BackendCompilationUtilities.scala.semanticdb
+│   │       │   │               │   │   │   │           │       ├── ClassUtils.scala.semanticdb
+│   │       │   │               │   │   │   │           │       └── TestOptions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── Logger.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── LoggerAnnotations.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── LoggerOptions.scala.semanticdb
+│   │       │   │               │   │   │   │           │   ├── package.scala.semanticdb
+│   │       │   │               │   │   │   │           │       ├── AddDefaults.scala.semanticdb
+│   │       │   │               │   │   │   │           │       └── Checks.scala.semanticdb
+│   │       │   │               │   │   │   │               │   └── AnalyzeCircuit.scala.semanticdb
+│   │       │   │               │   │   │   │                   └── AnalyzeCircuit.scala.semanticdb
+│   │       │   │               │   │   │       └── scala-2.12
+│   │       │   │               │   │   │                       └── BuildInfo.scala.semanticdb
+│   │       │   │               │   ├── LICENSE_scala-library
+│   │       │   │               │   ├── NOTICE_scala-library
+│   │       │   │               │   └── scala
+│   │       │   │               │   ├── LICENSE_scala-reflect
+│   │       │   │               │   ├── NOTICE_scala-reflect
+│   │       │   │               │   └── scala
+│   │       │   │               │           │   │   ├── Erasure$scalaErasure$.class
+│   │       │   │               │   ├── LICENSE_scala-reflect
+│   │       │   │               │   ├── NOTICE_scala-reflect
+│   │       │   │               │   └── scala
+│   │       │   │               │           │   │   ├── Erasure$scalaErasure$.class
+│   │       │   │               │   └── scala
+│   │       │   │               │           └── nscala_time
+│   │       │   │               │   └── scala
+│   │       │   │               │   │       │   ├── SuperscalarEventSets.class
+│   │       │   │               │           └── scalap
+│   │       │   │               │               └── scalasig
+│   │       │   ├── scalaCompilerBridgeScope
+│   │       │   ├── scalacOptions
+│       └── scala
+│           ├── rocket.scala
+│           └── rocket.scala.bak
+│   ├── scala-2.12
+│   │   │   ├── scalaCompilerBridgeScope
+│   │   │   ├── scalacOptions
+│   │       ├── scalacOptions
+│   │   │               └── Config.scala
+│   │   │       ├── scala-2.12
+│   │   │           │   ├── scalaCompilerBridgeScope
+│   │   │               ├── scalacOptions
+│   │       │   └── scala
+│   │       │       │   │       ├── Analog.scala
+│   │       │       │   │       └── IOCell.scala
+│   │       │       │   │   ├── CostMetric.scala
+│   │       │       │   │   ├── MacroCompiler.scala
+│   │       │       │   │   ├── SynFlopsPass.scala
+│   │       │       │   │   └── Utils.scala
+│   │       │       │           ├── AddSuffixToModuleNames.scala
+│   │       │       │           ├── AvoidExtModuleCollisions.scala
+│   │       │       │           ├── ConvertToExtModPass.scala
+│   │       │       │           ├── EnumerateModules.scala
+│   │       │       │           ├── GenerateTopAndHarness.scala
+│   │       │       │           ├── ReParentCircuit.scala
+│   │       │       │           ├── RemoveUnusedModules.scala
+│   │       │       │           ├── ResetInverter.scala
+│   │       │       │           │   └── Retime.scala
+│   │       │       │           │   └── TapeoutStage.scala
+│   │       │       │               ├── FileUtils.scala
+│   │       │       │               ├── LowerAnnotations.scala
+│   │       │       │               ├── ProgrammaticBundle.scala
+│   │       │       │               └── YamlHelpers.scala
+│   │       │               ├── ConfReader.scala
+│   │       │               ├── FillerMacroBase.scala
+│   │       │               ├── FlipChipMacro.scala
+│   │       │               ├── IOMacro.scala
+│   │       │               ├── MacroLib.scala
+│   │       │               ├── SRAM.scala
+│   │       │               └── Utils.scala
+│   │       │   ├── scala-2.12
+│   │       │       │   ├── scalaCompilerBridgeScope
+│   │       │           ├── scalacOptions
+│   │           └── scala
+│   │               │   │   ├── CostFunction.scala
+│   │               │   │   ├── Functional.scala
+│   │               │   │   ├── MacroCompilerSpec.scala
+│   │               │   │   ├── Masks.scala
+│   │               │   │   ├── MultiPort.scala
+│   │               │   │   ├── SRAMCompiler.scala
+│   │               │   │   ├── SimpleSplitDepth.scala
+│   │               │   │   ├── SimpleSplitWidth.scala
+│   │               │   │   ├── SpecificExamples.scala
+│   │               │   │   └── SynFlops.scala
+│   │               │           ├── GenerateSpec.scala
+│   │               │           ├── GenerateTopSpec.scala
+│   │               │           ├── ResetInverterSpec.scala
+│   │               │               └── RetimeSpec.scala
+│   │                       ├── ConfReaderSpec.scala
+│   │                       ├── FlipChipMacroSpec.scala
+│   │                       ├── IOMacroSpec.scala
+│   │                       ├── IOPropertiesSpec.scala
+│   │                       ├── MacroLibOutput.scala
+│   │                       └── MacroLibSpec.scala
+│   │       │   └── scala
+│   │       │               ├── AdvTester.scala
+│   │       │               ├── Backends.scala
+│   │       │               ├── ChiselMain.scala
+│   │       │               ├── ChiselPokeSpec.scala
+│   │       │               ├── ChiselSpec.scala
+│   │       │               ├── CommandEditor.scala
+│   │       │               ├── Driver.scala
+│   │       │               ├── Exerciser.scala
+│   │       │               ├── FirrtlTerpBackend.scala
+│   │       │               ├── HWIOTester.scala
+│   │       │               ├── IOAccessor.scala
+│   │       │               ├── IVLBackend.scala
+│   │       │               ├── OrderedDecoupledHWIOTester.scala
+│   │       │               ├── PeekPokeTester.scala
+│   │       │               ├── PeekPokeTesterUtils.scala
+│   │       │               ├── Pokeable.scala
+│   │       │               ├── SimApiInterface.scala
+│   │       │               ├── SteppedHWIOTester.scala
+│   │       │               ├── TestErrors.scala
+│   │       │               ├── TesterOptions.scala
+│   │       │               ├── TreadleBackend.scala
+│   │       │               ├── VCSBackend.scala
+│   │       │               ├── VSIMBackend.scala
+│   │       │               ├── VerilatorBackend.scala
+│   │       │               └── compatibility.scala
+│   │           └── scala
+│   │               │       ├── AggregateOrderingSpec.scala
+│   │               │       ├── BlackBoxVerilogDeliverySpec.scala
+│   │               │       ├── ChiselPokeSpec.scala
+│   │               │       ├── DriverSpec.scala
+│   │               │       ├── EnumSpec.scala
+│   │               │       ├── IntervalDshlTest.scala
+│   │               │       ├── LoggingUsageSpec.scala
+│   │               │       ├── MemPokeSpec.scala
+│   │               │       ├── ToolChainSpec.scala
+│   │               │       ├── VecFillSpec.scala
+│   │               │       └── ZeroWidthIOSpec.scala
+│   │               │   ├── ALUTester.scala
+│   │               │   ├── AccumBlackBoxSpec.scala
+│   │               │   ├── Adder.scala
+│   │               │   ├── AdvTesterSpec.scala
+│   │               │   ├── BigNumbers.scala
+│   │               │   ├── BoreSpec.scala
+│   │               │   ├── BundleInitSpec.scala
+│   │               │   ├── ComplexMemoryLoadingSpec.scala
+│   │               │   ├── ConcurrentDecoupledTestingSpec.scala
+│   │               │   ├── CycleTest.scala
+│   │               │   ├── DecoupledAdder.scala
+│   │               │   ├── DecoupledAdvTester.scala
+│   │               │   ├── DynamicMemorySearch.scala
+│   │               │   ├── FixedIsWholeTester.scala
+│   │               │   ├── FixedPointSpec.scala
+│   │               │   ├── GCDSpec.scala
+│   │               │   ├── GCDUnitTest.scala
+│   │               │   ├── Hello.scala
+│   │               │   ├── InterpreterVerilatorConsistencySpec.scala
+│   │               │   ├── IntervalSpec.scala
+│   │               │   ├── LoadMemoryFromFileSpec.scala
+│   │               │   ├── MaxN.scala
+│   │               │   ├── MultiIOModule.scala
+│   │               │   ├── PeekPokeBundleSpec.scala
+│   │               │   ├── RealGCD.scala
+│   │               │   ├── RerunWithoutElaboratonAndCompileSpec.scala
+│   │               │   ├── Router.scala
+│   │               │   ├── SecondClockDrivesRegisterSpec.scala
+│   │               │   ├── SmallOdds3.scala
+│   │               │   ├── SmallOdds4.scala
+│   │               │   ├── Solutions.scala
+│   │               │   ├── SyncReadMemTest.scala
+│   │               │   └── VecShiftRegister.scala
+│   │                   ├── Verilator.scala
+│   │                   ├── ZeroWidth.scala
+│   │                   ├── doohickey.scala
+│   │                   └── thingamabob.scala
+│   │   │           └── scala
+│   │   │                   └── TestMultiplexer.scala
+│   │       │   ├── scala
+│   │       │   │   │   ├── Driver.scala
+│   │       │   │   │   │           ├── CounterWithReset.scala
+│   │       │   │   │   │           └── ShiftRegisterWithReset.scala
+│   │       │   │   │   │   ├── ExtendedEuclid.scala
+│   │       │   │   │   │   └── Factorization.scala
+│   │       │   │   │   │   └── IAUtility.scala
+│   │       │   │   │   │   ├── BitWidth.scala
+│   │       │   │   │   │   └── DspException.scala
+│   │       │   │   │   │   ├── DspContext.scala
+│   │       │   │   │   │   │   ├── Eq.scala
+│   │       │   │   │   │   │   ├── Order.scala
+│   │       │   │   │   │   │   ├── PartialOrder.scala
+│   │       │   │   │   │   │   ├── Ring.scala
+│   │       │   │   │   │   │   ├── Signed.scala
+│   │       │   │   │   │   │       ├── Comparison.scala
+│   │       │   │   │   │   │       └── Sign.scala
+│   │       │   │   │   │   │   ├── BinaryRepresentation.scala
+│   │       │   │   │   │   │   └── NumberBits.scala
+│   │       │   │   │   │   │   ├── DspRealFirrtlInterpBB.scala
+│   │       │   │   │   │   │   ├── DspRealVerilatorBB.scala
+│   │       │   │   │   │   │   └── TrigUtility.scala
+│   │       │   │   │   │   │   ├── DspComplex.scala
+│   │       │   │   │   │   │   ├── DspReal.scala
+│   │       │   │   │   │   │   └── RealTrig.scala
+│   │       │   │   │   │   │   ├── DspComplexTypeClass.scala
+│   │       │   │   │   │   │   ├── DspRealTypeClass.scala
+│   │       │   │   │   │   │   ├── FixedPointTypeClass.scala
+│   │       │   │   │   │   │   ├── IntervalTypeClass.scala
+│   │       │   │   │   │   │   ├── SIntTypeClass.scala
+│   │       │   │   │   │   │   └── UIntTypeClass.scala
+│   │       │   │   │   │   │   ├── ChiselConvertableFrom.scala
+│   │       │   │   │   │   │   └── ConvertableTo.scala
+│   │       │   │   │   │   │   ├── AllOps.scala
+│   │       │   │   │   │   │   ├── ImplicitSyntax.scala
+│   │       │   │   │   │   │   ├── ImplicitsTop.scala
+│   │       │   │   │   │   │   └── package.scala
+│   │       │   │   │   │   │   └── Numbers.scala
+│   │       │   │   │   │   ├── package.scala
+│   │       │   │   │   │   │   └── BaseN.scala
+│   │       │   │   │   │       └── Saturate.scala
+│   │       │   │   │       ├── Chisel3TestersCompatibility.scala
+│   │       │   │   │       ├── DspTester.scala
+│   │       │   │   │       ├── DspTesterOptions.scala
+│   │       │   │   │       ├── DspTesterUtilities.scala
+│   │       │   │   │       ├── MemMasterModel.scala
+│   │       │   │   │       └── VerilogTbDump.scala
+│   │       │   │       ├── StreamingAutocorrelator.scala
+│   │       │   │       ├── TransposedStreamingFIR.scala
+│   │       │   │       └── gainOffCorr.scala
+│   │       │   └── scala-2.12
+│   │       │       └── scala
+│   │       │                   └── package.scala
+│   │       │   ├── scala-2.12
+│   │       │   │   │   └── scala
+│   │       │       │   ├── scalaCompilerBridgeScope
+│   │       │       │   ├── scalacOptions
+│   │           └── scala
+│   │               │   ├── BaseNSpec.scala
+│   │               │   ├── DspContextSpec.scala
+│   │               │   ├── DspTesterSpec.scala
+│   │               │   ├── LoggingSpec.scala
+│   │               │   ├── ShiftRegisterDelaySpec.scala
+│   │               │   │   └── SimpleTBwGenTypeOption.scala
+│   │               │       ├── AbsSpec.scala
+│   │               │       ├── BaseNSpec.scala
+│   │               │       ├── BlackBoxFloat.scala
+│   │               │       ├── DspComplexSpec.scala
+│   │               │       ├── FixedPointSpec.scala
+│   │               │       ├── FixedPrecisionChangerSpec.scala
+│   │               │       ├── IntervalSpec.scala
+│   │               │       ├── LnSpec.scala
+│   │               │       ├── NumbersSpec.scala
+│   │               │       ├── OverflowSpec.scala
+│   │               │       ├── ParameterizedOpSpec.scala
+│   │               │       ├── SaturateSpec.scala
+│   │               │       └── TypeclassSpec.scala
+│   │                   ├── CaseClassBundleSpec.scala
+│   │                   ├── ComplexMultiplierSpec.scala
+│   │                   ├── Demod.scala
+│   │                   ├── ParameterizedAdderSpec.scala
+│   │                   ├── ParameterizedSaturatingAdder.scala
+│   │                   ├── RealAdderSpec.scala
+│   │                   ├── SimpleAdderSpec.scala
+│   │                   ├── SimpleDspModuleSpec.scala
+│   │                   ├── StreamingAutocorrelatorSpec.scala
+│   │                   ├── TestVectors.scala
+│   │                   └── TransposedStreamFIRSpec.scala
+│   │       │   └── scala
+│   │       │       │   └── ShiftRegisterMem.scala
+│   │       │       │   ├── BasicBlocks.scala
+│   │       │       │   ├── CSR.scala
+│   │       │       │   ├── CounterWithReset.scala
+│   │       │       │   ├── DspBlock.scala
+│   │       │       │   ├── DspQueue.scala
+│   │       │       │   ├── DspRegister.scala
+│   │       │       │   ├── HierarchicalBlock.scala
+│   │       │       │   ├── MemToRegmap.scala
+│   │       │       │   ├── ShiftRegisterWithReset.scala
+│   │       │       │   └── TestIP.scala
+│   │       │       │   └── Sync.scala
+│   │       │       │       │   │   ├── APBMasterModel.scala
+│   │       │       │       │   │   └── Node.scala
+│   │       │       │       │   │   ├── AXI4MasterModel.scala
+│   │       │       │       │   │   └── Node.scala
+│   │       │       │       │       ├── AXI4StreamFuzzer.scala
+│   │       │       │       │       ├── AXI4StreamModel.scala
+│   │       │       │       │       ├── AXI4StreamWidthAdapter.scala
+│   │       │       │       │       ├── AsyncCrossing.scala
+│   │       │       │       │       ├── Buffer.scala
+│   │       │       │       │       ├── Bundles.scala
+│   │       │       │       │       ├── CrossingHelper.scala
+│   │       │       │       │       ├── DMA.scala
+│   │       │       │       │       ├── MMAPFIFO.scala
+│   │       │       │       │       ├── Mux.scala
+│   │       │       │       │       ├── Nodes.scala
+│   │       │       │       │       ├── Parameters.scala
+│   │       │       │       │       ├── SimpleSplitter.scala
+│   │       │       │       │       └── package.scala
+│   │       │       │       │   └── Nodes.scala
+│   │       │       │       │   ├── JtagFuzzer.scala
+│   │       │       │       │   ├── JtagIO.scala
+│   │       │       │       │   ├── JtagShifter.scala
+│   │       │       │       │   ├── JtagStateMachine.scala
+│   │       │       │       │   ├── JtagToMaster.scala
+│   │       │       │       │   ├── TestMultiplexer.scala
+│   │       │       │       │   └── Utils.scala
+│   │       │       │           ├── Node.scala
+│   │       │       │           └── TestIP.scala
+│   │       │       └── package.scala
+│   │       │   ├── scala-2.12
+│   │       │       │   ├── scalaCompilerBridgeScope
+│   │       │       │   ├── scalacOptions
+│   │           └── scala
+│   │               │   └── ShiftRegisterMemSpec.scala
+│   │               │   ├── BasicBlockTesters.scala
+│   │               │   ├── DspBlockFirSpec.scala
+│   │               │   ├── DspBlockSpec.scala
+│   │               │   └── DspRegisterSpec.scala
+│   │               │       └── MemMasterSpec.scala
+│   │               │       │   │   └── DMATests.scala
+│   │               │       │       └── AXI4StreamSpec.scala
+│   │               │           ├── Jtag2AXI4MultiplexerTester.scala
+│   │               │           ├── Jtag2TLMultiplexerTester.scala
+│   │               │           └── JtagFuzzerTester.scala
+│   │               │   └── JtagSpec.scala
+│   │                   └── SAMSpec.scala
+│   │   │           └── scala
+│   │   │               └── main.scala
+│   │   │           └── scala
+│   │   │               ├── DataChunk.scala
+│   │   │               ├── HWReg.scala
+│   │   │               ├── HWRegPool.scala
+│   │   │               ├── HWShadowReg.scala
+│   │   │               ├── Inst.scala
+│   │   │               ├── InstSeq.scala
+│   │   │               ├── Mem.scala
+│   │   │               ├── Operand.scala
+│   │   │               ├── Prog.scala
+│   │   │               ├── Rand.scala
+│   │   │               ├── SeqALU.scala
+│   │   │               ├── SeqBranch.scala
+│   │   │               ├── SeqFDiv.scala
+│   │   │               ├── SeqFPMem.scala
+│   │   │               ├── SeqFPU.scala
+│   │   │               ├── SeqFaX.scala
+│   │   │               ├── SeqMem.scala
+│   │   │               ├── SeqSeq.scala
+│   │   │               ├── SeqVALU.scala
+│   │   │               ├── SeqVMem.scala
+│   │   │               ├── SeqVOnly.scala
+│   │   │               ├── SeqVPop.scala
+│   │   │               ├── SeqVec.scala
+│   │   │               ├── VFInstSeq.scala
+│   │   │               └── main.scala
+│   │   │           └── scala
+│   │   │               └── main.scala
+│   │               └── scala
+│   │                   └── main.scala
+│       │   │   │   │           │   ├── tree-scalar-evolution.h
+│       │   │   │               │   ├── tree-scalar-evolution.h

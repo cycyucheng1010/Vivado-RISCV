@@ -16,6 +16,14 @@ class RocketSystem(implicit p: Parameters) extends RocketSubsystem
     with CanHaveMasterAXI4MemPort
     with CanHaveMasterAXI4MMIOPort
     with CanHaveSlaveAXI4Port
+    with fftgenerator.CanHavePeripheryFFT
+    //with sifive.blocks.devices.i2c.HasPeripheryI2CModuleImp
+    //with sifive.blocks.devices.pwm.HasPeripheryPWMModuleImp
+    //with sifive.blocks.devices.uart.HasPeripheryUARTModuleImp
+    //with sifive.blocks.devices.gpio.HasPeripheryGPIOModuleImp
+    //with sifive.blocks.devices.spi.HasPeripherySPIFlashModuleImp
+    //with sifive.blocks.devices.spi.HasPeripherySPIModuleImp
+    //with freechips.rocketchip.util.DontTouch
 {
   val bootROM  = p(BootROMLocated(location)).map { BootROM.attach(_, this, CBUS) }
   override lazy val module = new RocketSystemModuleImp(this)
@@ -49,6 +57,8 @@ class WithDebugProgBuf(prog_buf_words: Int, imp_break: Boolean) extends Config((
  * It also sets right core clock frequency.
  */
 class RocketBaseConfig extends Config(
+  new freechips.rocketchip.subsystem.WithNoMMIOPort ++              // no top-level MMIO master port (overrides default set in rocketchip)
+  new freechips.rocketchip.subsystem.WithNoSlavePort ++             // no top-level MMIO slave port (overrides default set in rocketchip)
   new WithBootROMFile("workspace/bootrom.img") ++
   new WithExtMemSize(0x80000000L) ++
   new WithNExtTopInterrupts(8) ++
@@ -355,7 +365,7 @@ class Rocket64z2m extends Config(
 
 class Rocket64b1fft8 extends Config(
   // new fftgenerator.WithFFTGenerator(numPoints=8, width=16, decPt=8) ++
-  new WithFFTGenerator(baseAddr=0x2400, numPoints=8, width=16, decPt=8) ++
+  new WithFFTGenerator(baseAddr=0x2000, numPoints=8, width=16, decPt=8) ++
   new WithInclusiveCache ++
   new WithNBreakpoints(8) ++
   new WithNBigCores(1) ++
@@ -371,14 +381,3 @@ class Rocket64b1fft16 extends Config(
   new RocketBaseConfig
 )
 
-
-/*
-import freechips.rocketchip.config.{Field, Parameters, Config}
-
-//parameter to enable FFT
-case object FFTEnableKey extends Field[Option[FixedTailParams]](None)
-
-class WithFFTGenerator (baseAddr: Int = 0x2400, numPoints: Int, width: Int = 16, decPt: Int = 8) extends Config((site, here, up) => {
-  case FFTEnableKey => Some(FixedTailParams(baseAddress = baseAddr, n = numPoints, lanes = numPoints, IOWidth = width, binaryPoint = decPt))
-})
-*/
