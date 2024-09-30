@@ -4,8 +4,8 @@ ifneq (,$(wildcard workspace/config))
 include workspace/config
 endif
 
-BOARD ?= nexys-video
-CONFIG ?= rocket64b2
+BOARD ?= genesys2
+CONFIG ?= Rocket64b1fft16
 HW_SERVER_ADDR ?= localhost:3121
 JAVA_OPTIONS ?=
 

@@ -378,6 +378,6 @@ class Rocket64b1fft16 extends Config(
   new WithInclusiveCache ++
   new WithNBreakpoints(8) ++
   new WithNBigCores(1) ++
-  new RocketBaseConfig
+  new RocketWideBusConfig
 )
 
