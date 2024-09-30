@@ -12,7 +12,7 @@
 /bare-metal/hello-world/boot.elf
 *.log
 *.jou
-#*/target/
+*/target/
 .Xil/
 .bloop/
 .bsp/
