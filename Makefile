@@ -5,10 +5,14 @@ include workspace/config
 endif
 
 BOARD ?= genesys2
-CONFIG ?= Rocket64b1fft16
+CONFIG ?= Rocket64b1fft64
 HW_SERVER_ADDR ?= localhost:3121
 JAVA_OPTIONS ?=
+MAX_THREADS ?= 12
+MEMORY_SIZE ?= 0x40000000
 
+# valid ROCKET_FREQ_MHZ values (MHz): 160 125 100 80 62.5 50 40 31.25 25 2
+ROCKET_FREQ_MHZ ?=80
 include board/$(BOARD)/Makefile.inc
 
 # --- packages and repos ---
@@ -140,12 +144,12 @@ opensbi/build/platform/vivado-risc-v/firmware/fw_payload.elf: $(wildcard patches
 CONFIG_SCALA := $(subst rocket,Rocket,$(CONFIG))
 
 # valid ROCKET_FREQ_MHZ values (MHz): 160 125 100 80 62.5 50 40 31.25 25 20
-ROCKET_FREQ_MHZ ?= $(shell awk '$$3 != "" && "$(BOARD)" ~ $$1 && "$(CONFIG_SCALA)" ~ ("^" $$2 "$$") {print $$3; exit}' board/rocket-freq)
+#ROCKET_FREQ_MHZ ?= $(shell awk '$$3 != "" && "$(BOARD)" ~ $$1 && "$(CONFIG_SCALA)" ~ ("^" $$2 "$$") {print $$3; exit}' board/rocket-freq)
 
 ROCKET_CLOCK_FREQ := $(shell echo - | awk '{printf("%.0f\n", $(ROCKET_FREQ_MHZ) * 1000000)}')
 ROCKET_TIMEBASE_FREQ := $(shell echo - | awk '{printf("%.0f\n", $(ROCKET_FREQ_MHZ) * 10000)}')
 
-MEMORY_SIZE ?= 0x40000000
+
 
 ifneq ($(findstring Rocket32t,$(CONFIG_SCALA)),)
   CROSS_COMPILE_NO_OS_TOOLS = $(realpath workspace/gcc/riscv/bin)/riscv32-unknown-elf-
@@ -278,7 +282,7 @@ vivado-project: $(proj_time)
 # --- generate FPGA bitstream ---
 
 # Multi-threading appears broken in Vivado. It causes intermittent failures.
-MAX_THREADS ?= 1
+
 
 $(synthesis): $(proj_time)
 	echo "open_project $(proj_file)" >$(proj_path)/make-synthesis.tcl

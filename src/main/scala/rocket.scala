@@ -369,12 +369,50 @@ class Rocket64b1fft8 extends Config(
   new WithInclusiveCache ++
   new WithNBreakpoints(8) ++
   new WithNBigCores(1) ++
-  new RocketBaseConfig
+  new RocketWideBusConfig
 )
 
 class Rocket64b1fft16 extends Config(
   // new fftgenerator.WithFFTGenerator(numPoints=8, width=16, decPt=8) ++
   new WithFFTGenerator(baseAddr=0x2000, numPoints=16, width=32, decPt=8) ++
+  new WithInclusiveCache ++
+  new WithNBreakpoints(8) ++
+  new WithNBigCores(1) ++
+  new RocketWideBusConfig
+)
+
+class Rocket64b1fft32 extends Config(
+  // new fftgenerator.WithFFTGenerator(numPoints=8, width=16, decPt=8) ++
+  new WithFFTGenerator(baseAddr=0x2000, numPoints=32, width=32, decPt=8) ++
+  new WithInclusiveCache ++
+  new WithNBreakpoints(8) ++
+  new WithNBigCores(1) ++
+  new RocketWideBusConfig
+)
+
+class Rocket64b1fft64 extends Config(
+  // new fftgenerator.WithFFTGenerator(numPoints=8, width=16, decPt=8) ++
+  new WithFFTGenerator(baseAddr=0x2000, numPoints=64, width=32, decPt=8) ++
+  new WithInclusiveCache ++
+  new WithNBreakpoints(8) ++
+  new WithNBigCores(1) ++
+  new RocketWideBusConfig
+)
+
+
+class Rocket64b1fft128 extends Config(
+  // new fftgenerator.WithFFTGenerator(numPoints=8, width=16, decPt=8) ++
+  new WithFFTGenerator(baseAddr=0x2000, numPoints=128, width=32, decPt=8) ++
+  new WithInclusiveCache ++
+  new WithNBreakpoints(8) ++
+  new WithNBigCores(1) ++
+  new RocketWideBusConfig
+)
+
+
+class Rocket64b1fft256 extends Config(
+  // new fftgenerator.WithFFTGenerator(numPoints=8, width=16, decPt=8) ++
+  new WithFFTGenerator(baseAddr=0x2000, numPoints=256, width=32, decPt=8) ++
   new WithInclusiveCache ++
   new WithNBreakpoints(8) ++
   new WithNBigCores(1) ++
