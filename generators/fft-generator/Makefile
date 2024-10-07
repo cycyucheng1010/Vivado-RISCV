@@ -11,8 +11,8 @@ TARGET = fft
 all: $(TARGET)
 
 # Rule to compile fft.c
-$(TARGET): fft.c
-	$(CC) $(CFLAGS) -o $(TARGET) fft.c
+$(TARGET): fft32.c
+	$(CC) $(CFLAGS) -o $(TARGET) fft32.c
 
 # Clean up generated files
 clean:
