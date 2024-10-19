@@ -51,7 +51,7 @@ case class FixedTailParams(
   lanes: Int = 2,
   n: Int = 2,
   S: Int = 256,
-  pipelineDepth: Int = 0, // not configurable since this is an mmio device and not on-pipeline
+  pipelineDepth: Int = 3, // not configurable since this is an mmio device and not on-pipeline, default is 0
   baseAddress: Int = 0x2000,
 ) extends TailParams[FixedPoint] {
   val proto = DspComplex(FixedPoint(IOWidth.W, binaryPoint.BP),FixedPoint(IOWidth.W, binaryPoint.BP))

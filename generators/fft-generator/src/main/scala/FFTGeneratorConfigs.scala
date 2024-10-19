@@ -10,5 +10,5 @@ import freechips.rocketchip.config.{Field, Parameters, Config}
 case object FFTEnableKey extends Field[Option[FixedTailParams]](None)
 
 class WithFFTGenerator (baseAddr: Int = 0x2400, numPoints: Int, width: Int = 16, decPt: Int = 8) extends Config((site, here, up) => {
-  case FFTEnableKey => Some(FixedTailParams(baseAddress = baseAddr, n = numPoints, lanes = numPoints, IOWidth = width, binaryPoint = decPt))
+  case FFTEnableKey => Some(FixedTailParams(baseAddress = baseAddr, n = numPoints, lanes = numPoints, IOWidth = width, binaryPoint = decPt)) //n,lane default = numpoints
 })
