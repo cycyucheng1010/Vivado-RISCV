@@ -10,6 +10,8 @@ import freechips.rocketchip.tile.{BuildRoCC, OpcodeSet}
 import freechips.rocketchip.util.DontTouch
 import freechips.rocketchip.system._
 import fftgenerator._
+import sha3._
+
 
 class RocketSystem(implicit p: Parameters) extends RocketSubsystem
     with HasAsyncExtInterrupts
@@ -372,6 +374,13 @@ class Rocket64b1fft8 extends Config(
   new RocketWideBusConfig
 )
 
+class Rocket64x1fft8 extends Config(
+  new WithFFTGenerator(baseAddr=0x2000, numPoints=8, width=16, decPt=8) ++
+  new WithInclusiveCache  ++
+  new WithNBreakpoints(8) ++
+  new boom.common.WithNMediumBooms(1) ++
+  new RocketWideBusConfig)
+
 class Rocket64b1fft16 extends Config(
   // new fftgenerator.WithFFTGenerator(numPoints=8, width=16, decPt=8) ++
   new WithFFTGenerator(baseAddr=0x2000, numPoints=16, width=32, decPt=8) ++
@@ -402,7 +411,7 @@ class Rocket64b1fft64 extends Config(
 
 class Rocket64b1fft128 extends Config(
   // new fftgenerator.WithFFTGenerator(numPoints=8, width=16, decPt=8) ++
-  new WithFFTGenerator(baseAddr=0x2000, numPoints=128, width=32, decPt=8) ++
+  new WithFFTGenerator(baseAddr=0x2000, numPoints=128, width=16, decPt=8) ++
   new WithInclusiveCache ++
   new WithNBreakpoints(8) ++
   new WithNBigCores(1) ++
@@ -412,10 +421,17 @@ class Rocket64b1fft128 extends Config(
 
 class Rocket64b1fft256 extends Config(
   // new fftgenerator.WithFFTGenerator(numPoints=8, width=16, decPt=8) ++
-  new WithFFTGenerator(baseAddr=0x2000, numPoints=256, width=32, decPt=8) ++
+  new WithFFTGenerator(baseAddr=0x2000, numPoints=256, width=16, decPt=8) ++
   new WithInclusiveCache ++
   new WithNBreakpoints(8) ++
   new WithNBigCores(1) ++
   new RocketWideBusConfig
 )
 
+class Rocket64b1sha3 extends Config(
+  new WithSha3Accel ++
+  new WithInclusiveCache ++
+  new WithNBreakpoints(8) ++
+  new WithNBigCores(1) ++
+  new RocketWideBusConfig
+)

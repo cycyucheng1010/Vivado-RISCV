@@ -4,15 +4,15 @@ ifneq (,$(wildcard workspace/config))
 include workspace/config
 endif
 
-BOARD ?= genesys2
-CONFIG ?= Rocket64b1fft64
+BOARD ?= vc707
+CONFIG ?= Rocket64b1fft128
 HW_SERVER_ADDR ?= localhost:3121
 JAVA_OPTIONS ?=
-MAX_THREADS ?= 12
+MAX_THREADS ?= 16
 MEMORY_SIZE ?= 0x40000000
 
 # valid ROCKET_FREQ_MHZ values (MHz): 160 125 100 80 62.5 50 40 31.25 25 2
-ROCKET_FREQ_MHZ ?=80
+ROCKET_FREQ_MHZ ?=31.25
 include board/$(BOARD)/Makefile.inc
 
 # --- packages and repos ---

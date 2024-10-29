@@ -21,8 +21,8 @@ lazy val vivado = (project in file("."))
   .dependsOn(dsptools)
   .dependsOn(rocket_dsp_utils)
   .dependsOn(api_config_chipsalliance)
-  .dependsOn(nvdla)
-  //.dependsOn(chipyard)
+  //.dependsOn(nvdla) not used
+  .dependsOn(sha3)
   .settings(libraryDependencies ++= rocketLibDeps.value)
   .settings(commonSettings)
 
@@ -130,8 +130,16 @@ lazy val firrtlSettings = Seq(libraryDependencies ++= Seq("edu.berkeley.cs" %% "
 lazy val chiselTestSettings = Seq(libraryDependencies ++= Seq("edu.berkeley.cs" %% "chisel-iotesters" % chiselTestVersion))
 
 
+lazy val sha3 = (project in file("generators/sha3"))
+  .dependsOn(rocketchip)
+  .dependsOn(targetutils)
+  .settings(libraryDependencies ++= rocketLibDeps.value)
+  .settings(chiselTestSettings)
+  .settings(commonSettings)
 
+/* not used
 lazy val nvdla = (project in file("generators/nvdla"))
   .dependsOn(rocketchip)
   .settings(libraryDependencies ++= rocketLibDeps.value)
   .settings(commonSettings)
+*/

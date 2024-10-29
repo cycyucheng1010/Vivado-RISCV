@@ -47,10 +47,12 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 # If there is no project opened, this script will create a
 # project, but make sure you do not have an existing project
 # <./myproj/project_1.xpr> in the current working folder.
-
+# here will set the part number and board
+# the part number "xc7k325tffg900-2" means  Xilinx Kintex-7
+# the board is "digilentinc.com:genesys2:part0:1.1"
 set list_projs [get_projects -quiet]
 if { $list_projs eq "" } {
-   create_project project_1 myproj -part xc7k325tffg900-2
+   create_project project_1 myproj -part xc7k325tffg900-2 
    set_property BOARD_PART digilentinc.com:genesys2:part0:1.1 [current_project]
 }
 
@@ -69,6 +71,8 @@ set nRet 0
 
 set cur_design [current_bd_design -quiet]
 set list_cells [get_bd_cells -quiet]
+
+
 
 if { ${design_name} eq "" } {
    # USE CASES:
@@ -126,7 +130,7 @@ if { $nRet != 0 } {
 
 set bCheckIPsPassed 1
 ##################################################################
-# CHECK IPs
+# CHECK IPs, here may diffrenet in boards
 ##################################################################
 set bCheckIPs 1
 if { $bCheckIPs == 1 } {
@@ -745,6 +749,9 @@ proc create_root_design { parentCell } {
   # Create instance: RocketChip, and set properties
   global rocket_module_name
   set RocketChip [create_bd_cell -type module -reference $rocket_module_name RocketChip]
+
+   
+
 
   # Create instance: clk_wiz_0, and set properties
   set clk_wiz_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0 ]

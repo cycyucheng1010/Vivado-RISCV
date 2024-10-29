@@ -70,6 +70,8 @@ set nRet 0
 set cur_design [current_bd_design -quiet]
 set list_cells [get_bd_cells -quiet]
 
+
+
 if { ${design_name} eq "" } {
    # USE CASES:
    #    1) Design_name not set
