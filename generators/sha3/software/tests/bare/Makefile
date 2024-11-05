@@ -4,7 +4,7 @@ TARGET := riscv64-unknown-elf
 CFLAGS := -mcmodel=medany -std=gnu99 -O2 -fno-common -fno-builtin-printf -Wall
 LDFLAGS := -static -nostdlib -nostartfiles -lgcc
 
-PROGRAMS := sha3-rocc sha3-sw
+PROGRAMS := sha3-rocc sha3-sw dilithium_rocc
 
 objs := crt.o syscalls.o
 ldscript := link.ld

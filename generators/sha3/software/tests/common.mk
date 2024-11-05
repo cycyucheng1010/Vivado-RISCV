@@ -1,12 +1,12 @@
 basedir := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 srcdir := $(basedir)/src
 
-PROGRAMS ?= sha3-sw sha3-rocc
+PROGRAMS ?= sha3-sw sha3-rocc dilithium_rocc
 
 CC := $(TARGET)-gcc
 OBJDUMP := $(TARGET)-objdump
 
-CFLAGS += -I $(srcdir)
+CFLAGS += -I $(srcdir) 
 
 hdrs := $(wildcard *.h) $(wildcard $(srcdir)/*.h)
 objs ?=

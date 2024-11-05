@@ -169,9 +169,10 @@ class WithSha3BlackBox extends Config((site, here, up) => {
   case Sha3TLB => None // Do not use the more correct DmemModule when blackboxing
 })
 
+//
 class WithSha3Accel extends Config ((site, here, up) => {
   case Sha3WidthP => 64
-  case Sha3Stages => 1
+  case Sha3Stages => 3
   case Sha3FastMem => true
   case Sha3BufferSram => false
   case Sha3Keccak => false

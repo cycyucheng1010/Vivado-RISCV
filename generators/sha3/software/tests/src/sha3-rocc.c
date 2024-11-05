@@ -6,10 +6,10 @@
 
 #include <stdio.h>
 #include <stdint.h>
-#include "rocc.h"
-#include "sha3.h"
-#include "encoding.h"
-#include "compiler.h"
+#include "include/sha3.h"
+#include "include/rocc.h"
+#include "include/encoding.h"
+#include "include/compiler.h"
 
 #ifdef __linux
 #include <sys/mman.h>

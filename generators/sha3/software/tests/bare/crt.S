@@ -1,6 +1,6 @@
 # See LICENSE for license details.
 
-#include "encoding.h"
+#include "include/encoding.h"
 
 #if __riscv_xlen == 64
 # define LREG ld
