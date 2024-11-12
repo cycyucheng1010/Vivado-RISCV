@@ -21,7 +21,7 @@
 #define SHA3_512_DIGEST_SIZE (512 / 8) //sha3-512 has 64words
 #define SHA3_512_BLOCK_SIZE (200 - 2 * SHA3_512_DIGEST_SIZE)
 
-//default : sha-3 256
+//default : sha-3 256 
 #define SHA3_DEFAULT_BLOCK_SIZE    SHA3_256_BLOCK_SIZE
 #define SHA3_DEFAULT_DIGEST_SIZE   SHA3_256_DIGEST_SIZE
 
@@ -216,7 +216,7 @@ void sha3_final(sha3_state *sctx, uint8_t *out)
 
   sctx->buf[inlen++] = PAD;
   memset(sctx->buf + inlen, 0, sctx->rsiz - inlen);
-  sctx->buf[sctx->rsiz - 1] |= 0x80;
+  sctx->buf[sctx->rsiz - 1] |= 0x80; //|= or eq
 
   for (i = 0; i < sctx->rsizw; i++)
   sctx->st[i] ^= ((uint64_t *) sctx->buf)[i];

@@ -14,6 +14,9 @@ case object Sha3WidthP extends Field[Int]
 case object Sha3Stages extends Field[Int]
 case object Sha3FastMem extends Field[Boolean]
 case object Sha3BufferSram extends Field[Boolean]
+
+//for sha3-shake
+case object Sha3Shake extends Field[Boolean]
 /*
  * Implement original Keccak candidate instead of the finalized FIPS 202
  * specification, which differs in the padding behavior
@@ -177,6 +180,7 @@ class WithSha3Accel extends Config ((site, here, up) => {
   case Sha3BufferSram => false
   case Sha3Keccak => false
   case Sha3BlackBox => false
+  case Sha3Shake => false //my added
   case Sha3TLB => Some(TLBConfig(nSets = 1, nWays = 4, nSectors = 1, nSuperpageEntries = 1))
   case BuildRoCC => up(BuildRoCC) ++ Seq(
     (p: Parameters) => {
