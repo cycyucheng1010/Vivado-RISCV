@@ -435,3 +435,11 @@ class Rocket64b1sha3 extends Config(
   new WithNBigCores(1) ++
   new RocketWideBusConfig
 )
+
+class Rocket64x1sha3 extends Config(
+  new WithSha3Accel ++
+  new WithInclusiveCache  ++
+  new WithNBreakpoints(8) ++
+  new boom.common.WithNMediumBooms(1) ++
+  new RocketWideBusConfig
+)

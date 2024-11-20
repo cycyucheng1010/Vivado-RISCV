@@ -118,7 +118,7 @@ static uint64_t lfsr(uint64_t x)
 }
 
 #ifdef __riscv
-#include "include/encoding.h"
+#include "include/sha3/encoding.h"
 #endif
 
 #define stringify_1(s) #s

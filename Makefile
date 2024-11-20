@@ -3,9 +3,9 @@
 ifneq (,$(wildcard workspace/config))
 include workspace/config
 endif
-
-BOARD ?= vc707
-CONFIG ?= Rocket64b1fft128
+#genesys2 or vc707 for test 
+BOARD ?= genesys2
+CONFIG ?= Rocket64x1sha3
 HW_SERVER_ADDR ?= localhost:3121
 JAVA_OPTIONS ?=
 MAX_THREADS ?= 16

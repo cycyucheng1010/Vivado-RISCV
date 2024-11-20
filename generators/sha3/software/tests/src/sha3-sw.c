@@ -6,10 +6,9 @@
 
 #include <stdio.h>
 #include <stdint.h>
-#include "include/sha3.h"
-#include "include/rocc.h"
-#include "include/encoding.h"
-#include "include/compiler.h"
+#include "include/sha3/sha3.h"
+#include "include/sha3/encoding.h"
+#include "include/sha3/compiler.h"
 
 int main() {
 

@@ -1,8 +1,8 @@
-#include "include/dilithiumHeader.h"
-#include "include/sha3.h"
-#include "include/rocc.h"
-#include "include/encoding.h"
-#include "include/compiler.h"
+#include "include/dilithium/dilithiumHeader.h"
+#include "include/sha3/sha3.h"
+#include "include/sha3/rocc.h"
+#include "include/sha3/encoding.h"
+#include "include/sha3/compiler.h"
 
 
 #define MLEN 59
