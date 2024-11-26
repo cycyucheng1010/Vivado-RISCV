@@ -1159,21 +1159,50 @@ static void shake_h_msg( slh_ctx_t *ctx,
     shake_out(&sha3, h, ctx->prm->m);
 }
 
+void sha3_256_xof(const uint8_t *input, size_t input_len, uint8_t *output, size_t output_len) {
+    uint8_t counter[4] = {0}; // 用於多次雜湊計算的計數器
+    uint8_t hash[32];         // 每次 SHA3-256 的輸出
+    size_t generated = 0;     // 已生成的輸出長度
+    size_t i;
+
+    while (generated < output_len) {
+        // 構造輸入：原始輸入 + 計數器
+        sha3_ctx_t sha3;
+        sha3_init(&sha3, 32);
+        sha3_update(&sha3, input, input_len);
+        sha3_update(&sha3, counter, sizeof(counter));
+        sha3_final(&sha3, hash);
+
+        // 複製雜湊輸出到最終結果
+        size_t to_copy = (output_len - generated < 32) ? (output_len - generated) : 32;
+        memcpy(output + generated, hash, to_copy);
+        generated += to_copy;
+
+        // 增加計數器
+        for (i = 0; i < sizeof(counter); i++) {
+            if (++counter[i] != 0) break; // 進位處理
+        }
+    }
+}
+
 static void sha3_h_msg( slh_ctx_t *ctx,
                             uint8_t *h,
                             const uint8_t *r,
                             const uint8_t *m, size_t m_sz)
 {
-    sha3_ctx_t sha3;
-    size_t  n = ctx->prm->n;
+    //sha3_ctx_t sha3;
+    size_t n = ctx->prm->n;
+    size_t m_out = ctx->prm->m;
 
-    sha3_init(&sha3,32);
-    sha3_update(&sha3, r, n);
-    sha3_update(&sha3, ctx->pk_seed, n);
-    sha3_update(&sha3, ctx->pk_root, n);
-    sha3_update(&sha3, m, m_sz);
+    // 拼接輸入資料
+    uint8_t input[3 * n + m_sz];
+    memcpy(input, r, n);
+    memcpy(input + n, ctx->pk_seed, n);
+    memcpy(input + 2 * n, ctx->pk_root, n);
+    memcpy(input + 3 * n, m, m_sz);
 
-    sha3_final(&sha3, h);
+    // 使用 sha3_256_xof 模擬 SHAKE256
+    sha3_256_xof(input, 3 * n + m_sz, h, m_out);
 }
 
 //  F(PK.seed, ADRS, M1 ) = SHAKE256(PK.seed || ADRS || M1, 8n)
@@ -1182,15 +1211,14 @@ static void sha3_f( slh_ctx_t *ctx,
                         uint8_t *h,
                         const uint8_t *m1)
 {
-    sha3_ctx_t sha3;
-    size_t  n = ctx->prm->n;
+    //sha3_ctx_t sha3;
+    size_t n = ctx->prm->n;
+    uint8_t input[n + 32 + n]; // PK.seed + ADRS + m1
+    memcpy(input, ctx->pk_seed, n);
+    memcpy(input + n, (const uint8_t *)ctx->adrs->u8, 32);
+    memcpy(input + n + 32, m1, n);
 
-    sha3_init(&sha3,32);
-    sha3_update(&sha3, ctx->pk_seed, n);
-    sha3_update(&sha3, (const uint8_t *) ctx->adrs->u8, 32);
-    sha3_update(&sha3, m1, n);
-
-    sha3_final(&sha3, h);
+    sha3_256_xof(input, n + 32 + n, h, n);
 }
 
 
@@ -1260,15 +1288,13 @@ static void shake_prf_msg(  slh_ctx_t *ctx,
 static void sha3_t( slh_ctx_t *ctx,
                         uint8_t *h, const uint8_t *m, size_t m_sz)
 {
-    sha3_ctx_t sha3;
-    size_t  n = ctx->prm->n;
+     size_t n = ctx->prm->n;
+    uint8_t input[n + 32 + m_sz]; // PK.seed + ADRS + m
+    memcpy(input, ctx->pk_seed, n);
+    memcpy(input + n, (const uint8_t *)ctx->adrs->u8, 32);
+    memcpy(input + n + 32, m, m_sz);
 
-    sha3_init(&sha3,32);
-    sha3_update(&sha3, ctx->pk_seed, n);
-    sha3_update(&sha3, (const uint8_t *) ctx->adrs->u8, 32);
-    sha3_update(&sha3, m, m_sz);
-
-    sha3_final(&sha3, h);
+    sha3_256_xof(input, n + 32 + m_sz, h, n);
 }
 
 
@@ -1293,16 +1319,16 @@ static void sha3_h( slh_ctx_t *ctx,
                         uint8_t *h,
                         const uint8_t *m1, const uint8_t *m2)
 {
-    sha3_ctx_t sha3;
+    //sha3_ctx_t sha3;
     size_t  n = ctx->prm->n;
 
-    sha3_init(&sha3,32);
-    sha3_update(&sha3, ctx->pk_seed, n);
-    sha3_update(&sha3, (const uint8_t *) ctx->adrs->u8, 32);
-    sha3_update(&sha3, m1, n);
-    sha3_update(&sha3, m2, n);
+    uint8_t input[n + 32 + n + n]; // PK.seed + ADRS + m1 + m2
+    memcpy(input, ctx->pk_seed, n);
+    memcpy(input + n, (const uint8_t *)ctx->adrs->u8, 32);
+    memcpy(input + n + 32, m1, n);
+    memcpy(input + n + 32 + n, m2, n);
 
-    sha3_final(&sha3, h);
+    sha3_256_xof(input, n + 32 + n + n, h, n);
 }
 
 
@@ -1561,7 +1587,7 @@ const slh_param_t slh_dsa_shake_256f = {    .alg_id ="SLH-DSA-SHAKE-256f",
     .h_f= shake_f, .h_h= shake_h, .h_t= shake_t
 };
 
-const slh_param_t slt_dsa_sha3_256 = {     .alg_id = "SLH-DSA-SHA3-256",
+const slh_param_t slh_dsa_sha3_256 = {     .alg_id = "SLH-DSA-SHA3-256",
     .n= 32, .h= 64, .d= 8, .hp= 8, .a= 14, .k= 22, .lg_w= 4, .m= 47,
     .mk_ctx= sha3_mk_ctx, .chain= sha3_chain,
     .wots_chain= sha3_wots_chain, .fors_hash= sha3_fors_hash,
@@ -1615,8 +1641,8 @@ int main() {
     printf("\n");
 
     // 配置參數集
-    const slh_param_t *param = &slh_dsa_shake_256s;
-    //const slh_param_t *param = &slt_dsa_sha3_256;
+    //const slh_param_t *param = &slh_dsa_shake_256s;
+    const slh_param_t *param = &slh_dsa_sha3_256;
     uint8_t pk[2 * param->n]; // 公鑰
     uint8_t sk[4 * param->n]; // 私鑰
     uint8_t sig[50000];       // 簽名緩衝區

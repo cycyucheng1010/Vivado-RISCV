@@ -20,7 +20,7 @@ typedef struct {                            //  state context
     } st;
     int pt, rsiz, mdlen;
 } sha3_ctx_t;
-
+void *sha3One(uint8_t *md, int mdlen, const void *in, size_t inlen);
 //  compute a SHA-3 hash "md" of "mdlen" bytes from data in "in"
 void *sha3(uint8_t *md, int mdlen, const void *in, size_t inlen);
 

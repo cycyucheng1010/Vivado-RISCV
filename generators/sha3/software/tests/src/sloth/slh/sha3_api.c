@@ -69,6 +69,8 @@ void *sha3(uint8_t *md, int mdlen, const void *in, size_t inlen)
     return md;
 }
 
+
+
 //  SHAKE128 and SHAKE256 extensible-output functionality
 //  squeeze output
 
