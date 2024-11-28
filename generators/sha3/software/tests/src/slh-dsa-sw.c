@@ -1160,22 +1160,27 @@ static void shake_h_msg( slh_ctx_t *ctx,
 }
 
 void sha3_256_xof(const uint8_t *input, size_t input_len, uint8_t *output, size_t output_len) {
-    uint8_t counter[4] = {0}; // 用於多次雜湊計算的計數器
-    uint8_t hash[32];         // 每次 SHA3-256 的輸出
-    size_t generated = 0;     // 已生成的輸出長度
+   uint8_t counter[4] = {0}; // 用於多次雜湊計算的計數器
+    uint8_t intermediate_hash[32]; // 第一次 SHA3-256 的輸出
+    uint8_t final_hash[32];        // 第二次 SHA3-256 的輸出
+    size_t generated = 0;          // 已生成的輸出長度
     size_t i;
 
     while (generated < output_len) {
-        // 構造輸入：原始輸入 + 計數器
-        sha3_ctx_t sha3;
-        sha3_init(&sha3, 32);
-        sha3_update(&sha3, input, input_len);
-        sha3_update(&sha3, counter, sizeof(counter));
-        sha3_final(&sha3, hash);
+        // 第一次 SHA3: 雜湊 input
+        sha3(intermediate_hash, 32, input, input_len);
+
+        // 第二次 SHA3: 雜湊 intermediate_hash + counter
+        size_t total_input_size = 32 + sizeof(counter);
+        uint8_t extended_input[total_input_size];
+        memcpy(extended_input, intermediate_hash, 32);
+        memcpy(extended_input + 32, counter, sizeof(counter));
+
+        sha3(final_hash, 32, extended_input, total_input_size);
 
         // 複製雜湊輸出到最終結果
         size_t to_copy = (output_len - generated < 32) ? (output_len - generated) : 32;
-        memcpy(output + generated, hash, to_copy);
+        memcpy(output + generated, final_hash, to_copy);
         generated += to_copy;
 
         // 增加計數器
@@ -1256,15 +1261,27 @@ static void sha3_prf_msg(  slh_ctx_t *ctx,
                                 uint8_t *h, const uint8_t *opt_rand,
                                 const uint8_t *m, size_t m_sz)
 {
-    sha3_ctx_t sha3;
+    //sha3_ctx_t sha3;
     size_t  n = ctx->prm->n;
+    
+    uint8_t temp_hash[32]; // 假設最終輸出的中間結果長度
 
-    sha3_init(&sha3,32);
-    sha3_update(&sha3, ctx->sk_prf, n);
-    sha3_update(&sha3, opt_rand, n);
-    sha3_update(&sha3, m, m_sz);
+    // 第一次更新：ctx->sk_prf
+    sha3(temp_hash, n, ctx->sk_prf, n);
 
-    sha3_final(&sha3, h);
+    // 第二次更新：opt_rand
+    sha3(temp_hash, n, opt_rand, n);
+
+    // 第三次更新：m
+    sha3(h, n, m, m_sz);
+
+
+    // sha3_init(&sha3,32);
+    // sha3_update(&sha3, ctx->sk_prf, n);
+    // sha3_update(&sha3, opt_rand, n);
+    // sha3_update(&sha3, m, m_sz);
+
+    // sha3_final(&sha3, h);
 }
 
 
