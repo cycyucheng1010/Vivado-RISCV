@@ -175,7 +175,7 @@ class WithSha3BlackBox extends Config((site, here, up) => {
 //
 class WithSha3Accel extends Config ((site, here, up) => {
   case Sha3WidthP => 64
-  case Sha3Stages => 3
+  case Sha3Stages => 1
   case Sha3FastMem => true
   case Sha3BufferSram => false
   case Sha3Keccak => false
@@ -193,3 +193,27 @@ class WithSha3Accel extends Config ((site, here, up) => {
 class WithSha3Printf extends Config((site, here, up) => {
   case Sha3PrintfEnable => true
 })
+
+class WithTwoSha3Accel extends Config((site, here, up) => {
+  case Sha3WidthP => 64
+  case Sha3Stages => 1
+  case Sha3FastMem => true
+  case Sha3BufferSram => false
+  case Sha3Keccak => false
+  case Sha3BlackBox => false
+  case Sha3Shake => false
+  case Sha3TLB => Some(TLBConfig(nSets = 1, nWays = 4, nSectors = 1, nSuperpageEntries = 1))
+  case BuildRoCC => up(BuildRoCC) ++ Seq(
+    // 第一個 SHA3 加速器
+    (p: Parameters) => {
+      val sha3_1 = LazyModule.apply(new Sha3Accel(OpcodeSet.custom2)(p))
+      sha3_1
+    },
+    // 第二個 SHA3 加速器
+    (p: Parameters) => {
+      val sha3_2 = LazyModule.apply(new Sha3Accel(OpcodeSet.custom3)(p))
+      sha3_2
+    }
+  )
+})
+

@@ -1,0 +1,20 @@
+cp patches/u-boot/vivado_riscv64_defconfig u-boot/configs 
+if [ -s patches/u-boot.patch ] ; then cd u-boot && ( git apply -R --check ../patches/u-boot.patch 2>/dev/null || git apply ../patches/u-boot.patch ) ; fi
+cp -p -r patches/u-boot/vivado_riscv64 u-boot/board/xilinx
+cp -p patches/u-boot/vivado_riscv64.h u-boot/include/configs
+make -C u-boot CROSS_COMPILE=/usr/bin/riscv64-linux-gnu- BOARD=vivado_riscv64 vivado_riscv64_config
+make -C u-boot \
+  BOARD=vivado_riscv64 \
+  CC=/usr/bin/riscv64-linux-gnu-gcc-8 \
+  CROSS_COMPILE=/usr/bin/riscv64-linux-gnu- \
+  KCFLAGS='-O1 -gno-column-info' \
+  all
+mkdir -p opensbi/platform/vivado-risc-v
+cp -p patches/opensbi/* opensbi/platform/vivado-risc-v
+make -C opensbi CROSS_COMPILE=/usr/bin/riscv64-linux-gnu- PLATFORM=vivado-risc-v \
+ FW_PAYLOAD_PATH=`realpath u-boot/u-boot-nodtb.bin`
+mkdir -p workspace
+cp opensbi/build/platform/vivado-risc-v/firmware/fw_payload.elf workspace/boot.elf
+echo "open_project workspace/Rocket64x1sha3/vivado-genesys2-riscv/genesys2-riscv.xpr" >workspace/Rocket64x1sha3/vivado-genesys2-riscv/make-mcs.tcl
+echo "write_cfgmem -format mcs -interface SPIx4 -size 32 -loadbit {up 0x0 workspace/Rocket64x1sha3/vivado-genesys2-riscv/genesys2-riscv.runs/impl_1/riscv_wrapper.bit}  -file workspace/Rocket64x1sha3/genesys2-riscv.mcs -force" >>workspace/Rocket64x1sha3/vivado-genesys2-riscv/make-mcs.tcl
+env XILINX_LOCAL_USER_DATA=no vivado -mode batch -nojournal -nolog -notrace -quiet -source workspace/Rocket64x1sha3/vivado-genesys2-riscv/make-mcs.tcl

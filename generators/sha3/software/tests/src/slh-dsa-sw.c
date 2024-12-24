@@ -1158,34 +1158,35 @@ static void shake_h_msg( slh_ctx_t *ctx,
 
     shake_out(&sha3, h, ctx->prm->m);
 }
-
+// 替換原本的 Shake256 xof輸出函数
 void sha3_256_xof(const uint8_t *input, size_t input_len, uint8_t *output, size_t output_len) {
-   uint8_t counter[4] = {0}; // 用於多次雜湊計算的計數器
-    uint8_t intermediate_hash[32]; // 第一次 SHA3-256 的輸出
-    uint8_t final_hash[32];        // 第二次 SHA3-256 的輸出
-    size_t generated = 0;          // 已生成的輸出長度
+   uint8_t counter[4] = {0};  // 計數器
+    uint8_t hash[32];          // 單次 SHA3-256 的輸出
+    size_t generated = 0;      // 已生成的輸出長度
     size_t i;
 
     while (generated < output_len) {
-        // 第一次 SHA3: 雜湊 input
-        sha3(intermediate_hash, 32, input, input_len);
+        // 拼接輸入和計數器
+        uint8_t *full_input = malloc(input_len + sizeof(counter));
+        if (!full_input) {
+            fprintf(stderr, "Memory allocation failed\n");
+            return;
+        }
+        memcpy(full_input, input, input_len);
+        memcpy(full_input + input_len, counter, sizeof(counter));
 
-        // 第二次 SHA3: 雜湊 intermediate_hash + counter
-        size_t total_input_size = 32 + sizeof(counter);
-        uint8_t extended_input[total_input_size];
-        memcpy(extended_input, intermediate_hash, 32);
-        memcpy(extended_input + 32, counter, sizeof(counter));
+        // 一次性計算 SHA3-256
+        sha3(hash, 32, full_input, input_len + sizeof(counter));
+        free(full_input);
 
-        sha3(final_hash, 32, extended_input, total_input_size);
-
-        // 複製雜湊輸出到最終結果
+        // 複製輸出
         size_t to_copy = (output_len - generated < 32) ? (output_len - generated) : 32;
-        memcpy(output + generated, final_hash, to_copy);
+        memcpy(output + generated, hash, to_copy);
         generated += to_copy;
 
         // 增加計數器
         for (i = 0; i < sizeof(counter); i++) {
-            if (++counter[i] != 0) break; // 進位處理
+            if (++counter[i] != 0) break;
         }
     }
 }
@@ -1195,19 +1196,45 @@ static void sha3_h_msg( slh_ctx_t *ctx,
                             const uint8_t *r,
                             const uint8_t *m, size_t m_sz)
 {
-    //sha3_ctx_t sha3;
     size_t n = ctx->prm->n;
-    size_t m_out = ctx->prm->m;
+    size_t mgf_sz = 2 * n + 32 + 4;
+    uint8_t mgf[mgf_sz];  // 符合計算需求的緩衝區
+    uint8_t digest[32];   // 暫存計算結果
+    uint8_t *ctr = mgf + mgf_sz - 4;  // 指向計數器位置
 
-    // 拼接輸入資料
-    uint8_t input[3 * n + m_sz];
+    // 拼接 R 和 PK.seed
+    memcpy(mgf, r, n);
+    memcpy(mgf + n, ctx->pk_seed, n);
+
+    // 計算 SHA3-256(R || PK.seed || PK.root || M)
+    uint8_t input[3 * n + m_sz];  // 拼接 r, pk_seed, pk_root, 和 m
     memcpy(input, r, n);
     memcpy(input + n, ctx->pk_seed, n);
     memcpy(input + 2 * n, ctx->pk_root, n);
     memcpy(input + 3 * n, m, m_sz);
+    sha3(digest, 32, input, 3 * n + m_sz);
 
-    // 使用 sha3_256_xof 模擬 SHAKE256
-    sha3_256_xof(input, 3 * n + m_sz, h, m_out);
+    // 將 digest 寫入 mgf 中
+    memcpy(mgf + 2 * n, digest, 32);
+
+    // MGF1 計數模式
+    for (size_t i = 0; i < ctx->prm->m; i += 32) {
+        uint32_t c = i / 32;
+        ctr[0] = c >> 24;
+        ctr[1] = (c >> 16) & 0xFF;
+        ctr[2] = (c >> 8) & 0xFF;
+        ctr[3] = c & 0xFF;
+
+        uint8_t mgf_input[mgf_sz];
+        memcpy(mgf_input, mgf, mgf_sz);
+
+        if ((ctx->prm->m - i) >= 32) {
+            sha3(h + i, 32, mgf_input, mgf_sz);
+        } else {
+            sha3(digest, 32, mgf_input, mgf_sz);
+            memcpy(h + i, digest, ctx->prm->m - i);
+        }
+    }
 }
 
 //  F(PK.seed, ADRS, M1 ) = SHAKE256(PK.seed || ADRS || M1, 8n)
@@ -1216,7 +1243,6 @@ static void sha3_f( slh_ctx_t *ctx,
                         uint8_t *h,
                         const uint8_t *m1)
 {
-    //sha3_ctx_t sha3;
     size_t n = ctx->prm->n;
     uint8_t input[n + 32 + n]; // PK.seed + ADRS + m1
     memcpy(input, ctx->pk_seed, n);
@@ -1246,7 +1272,12 @@ static void shake_f( slh_ctx_t *ctx,
 
 static void sha3_prf(slh_ctx_t *ctx, uint8_t *h)
 {
-    sha3_f(ctx, h, ctx->sk_seed);
+    size_t n = ctx->prm->n;
+    uint8_t input[n + 32]; // PK.seed + ADRS
+    memcpy(input, ctx->pk_seed, n);
+    memcpy(input + n, (const uint8_t *)ctx->adrs->u8, 32);
+
+    sha3_256_xof(input, n + 32, h, n);
 }
 
 static void shake_prf(slh_ctx_t *ctx, uint8_t *h)
@@ -1261,27 +1292,32 @@ static void sha3_prf_msg(  slh_ctx_t *ctx,
                                 uint8_t *h, const uint8_t *opt_rand,
                                 const uint8_t *m, size_t m_sz)
 {
-    //sha3_ctx_t sha3;
-    size_t  n = ctx->prm->n;
-    
-    uint8_t temp_hash[32]; // 假設最終輸出的中間結果長度
+    uint8_t pad[32], buf[32];
+    size_t n = ctx->prm->n;
 
-    // 第一次更新：ctx->sk_prf
-    sha3(temp_hash, n, ctx->sk_prf, n);
+    // ipad
+    memcpy(pad, ctx->sk_prf, n);
+    for (size_t i = 0; i < n; i++) {
+        pad[i] ^= 0x36;
+    }
+    memset(pad + n, 0x36, 32 - n);
 
-    // 第二次更新：opt_rand
-    sha3(temp_hash, n, opt_rand, n);
+    uint8_t input1[32 + n + m_sz]; // ipad + opt_rand + m
+    memcpy(input1, pad, 32);
+    memcpy(input1 + 32, opt_rand, n);
+    memcpy(input1 + 32 + n, m, m_sz);
+    sha3(buf, 32, input1, 32 + n + m_sz);
 
-    // 第三次更新：m
-    sha3(h, n, m, m_sz);
+    // 2. 計算 HMAC 的外部雜湊（opad 部分）
+    for (size_t i = 0; i < n; i++) {
+        pad[i] ^= 0x36 ^ 0x5C; // 反轉 ipad，切換到 opad
+    }
+    memset(pad + n, 0x5C, 32 - n);
 
-
-    // sha3_init(&sha3,32);
-    // sha3_update(&sha3, ctx->sk_prf, n);
-    // sha3_update(&sha3, opt_rand, n);
-    // sha3_update(&sha3, m, m_sz);
-
-    // sha3_final(&sha3, h);
+    uint8_t input2[32 + 32]; // opad + buf
+    memcpy(input2, pad, 32);
+    memcpy(input2 + 32, buf, 32);
+    sha3(h, 32, input2, 64);
 }
 
 
@@ -1305,7 +1341,7 @@ static void shake_prf_msg(  slh_ctx_t *ctx,
 static void sha3_t( slh_ctx_t *ctx,
                         uint8_t *h, const uint8_t *m, size_t m_sz)
 {
-     size_t n = ctx->prm->n;
+    size_t n = ctx->prm->n;
     uint8_t input[n + 32 + m_sz]; // PK.seed + ADRS + m
     memcpy(input, ctx->pk_seed, n);
     memcpy(input + n, (const uint8_t *)ctx->adrs->u8, 32);
@@ -1336,9 +1372,7 @@ static void sha3_h( slh_ctx_t *ctx,
                         uint8_t *h,
                         const uint8_t *m1, const uint8_t *m2)
 {
-    //sha3_ctx_t sha3;
-    size_t  n = ctx->prm->n;
-
+    size_t n = ctx->prm->n;
     uint8_t input[n + 32 + n + n]; // PK.seed + ADRS + m1 + m2
     memcpy(input, ctx->pk_seed, n);
     memcpy(input + n, (const uint8_t *)ctx->adrs->u8, 32);
@@ -1373,19 +1407,29 @@ static void sha3_mk_ctx(slh_ctx_t *ctx,
 {
     size_t n = prm->n;
 
-    ctx->prm = prm;     //  store fixed parameters
-    if (sk != NULL) {
-        memcpy( ctx->sk_seed,   sk,         n );
-        memcpy( ctx->sk_prf,    sk + n,     n );
-        memcpy( ctx->pk_seed,   sk + 2*n,   n );
-        memcpy( ctx->pk_root,   sk + 3*n,   n );
-    } else  if (pk != NULL) {
-        memcpy( ctx->pk_seed,   pk,         n );
-        memcpy( ctx->pk_root,   pk + n,     n );
+    // 初始化上下文
+    memset(ctx, 0, sizeof(slh_ctx_t));
+    ctx->prm = prm;
+
+    // 確保至少有一個密鑰輸入
+    if (sk == NULL && pk == NULL) {
+        fprintf(stderr, "Error: Both pk and sk are NULL in sha3_256_mk_ctx\n");
+        return;
     }
 
-    //  local ADRS buffer
+    if (sk != NULL) {
+        memcpy(ctx->sk_seed, sk, n);
+        memcpy(ctx->sk_prf, sk + n, n);
+        memcpy(ctx->pk_seed, sk + 2 * n, n);
+        memcpy(ctx->pk_root, sk + 3 * n, n);
+    } else if (pk != NULL) {
+        memcpy(ctx->pk_seed, pk, n);
+        memcpy(ctx->pk_root, pk + n, n);
+    }
+
+    // 初始化本地 ADRS 緩衝區
     ctx->adrs = &ctx->t_adrs;
+    memset(ctx->adrs, 0, sizeof(adrs_t));
 }
 
 static void shake_mk_ctx(slh_ctx_t *ctx,
@@ -1417,42 +1461,24 @@ static void shake_mk_ctx(slh_ctx_t *ctx,
 static void sha3_chain( slh_ctx_t *ctx, uint8_t *tmp, const uint8_t *x,
                             uint32_t i, uint32_t s)
 {
-    uint32_t j, k;
-    uint64_t ks[25];
     size_t n = ctx->prm->n;
+    uint8_t input[n + 32];  // 定義輸入緩衝區
+    uint8_t output[32];     // 定義輸出緩衝區
 
-    if (s == 0) {                           //  no-op
+    if (s == 0) {
         memcpy(tmp, x, n);
         return;
     }
 
-    const uint32_t r = (1600-256*2)/64;     //  SHAKE256 rate
-    uint32_t n8 = n / 8;                    //  number of words
-    uint32_t h = n8 + (32 / 8);             //  static part len
-    uint32_t l = h + n8;                    //  input length
+    for (uint32_t j = 0; j < s; j++) {
+        adrs_set_hash_address(ctx, i + j);
+        memcpy(input, x, n); // 將 `x` 複製到輸入緩衝區
+        memcpy(input + n, ctx->adrs->u8, 32); // 將地址附加到輸入緩衝區
 
-    memcpy(ks + h, x, n);                   //  start node
-    for (j = 0; j < s; j++) {
-        if (j > 0) {
-            memcpy(ks + h, ks, n);          //  chaining
-        }
-        memcpy(ks, ctx->pk_seed, n);        //  PK.seed
-        adrs_set_hash_address(ctx, i + j);  //  address
-        memcpy(ks + n8, (const uint8_t *) ctx->adrs->u8, 32);
-
-        //  padding
-        ks[l] = 0x06;                       //  sha3 padding
-        for (k = l + 1; k < r - 1; k++) {
-            ks[k] = 0;
-        }
-        ks[r - 1] = UINT64_C(1) << 63;      //  rate padding
-        for (k = r; k < 25; k++) {
-            ks[k] = 0;
-        }
-
-        keccak_f1600(ks);                   //  permutation
+        sha3(output, 32, input, n + 32); // 一次性計算 SHA3-256
+        memcpy(tmp, output, n);         // 將輸出保存到 `tmp`
+        x = tmp;                        // 更新鏈接輸入
     }
-    memcpy(tmp, ks, n);
 }
 
 static void shake_chain( slh_ctx_t *ctx, uint8_t *tmp, const uint8_t *x,
@@ -1535,7 +1561,7 @@ static void sha3_fors_hash( slh_ctx_t *ctx, uint8_t *tmp, uint32_t s)
     //  hash it again
     if (s == 1) {
         adrs_set_type(ctx, ADRS_FORS_TREE);
-        sha3_f(ctx, tmp, tmp);
+        sha3_h(ctx, tmp, tmp,tmp);
     }
 }
 

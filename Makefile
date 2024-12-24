@@ -5,14 +5,14 @@ include workspace/config
 endif
 #genesys2 or vc707 for test 
 BOARD ?= genesys2
-CONFIG ?= Rocket64x1sha3
+CONFIG ?= Rocket64b2TwoSha3
 HW_SERVER_ADDR ?= localhost:3121
 JAVA_OPTIONS ?=
 MAX_THREADS ?= 16
 MEMORY_SIZE ?= 0x40000000
 
 # valid ROCKET_FREQ_MHZ values (MHz): 160 125 100 80 62.5 50 40 31.25 25 2
-ROCKET_FREQ_MHZ ?=31.25
+ROCKET_FREQ_MHZ ?=50
 include board/$(BOARD)/Makefile.inc
 
 # --- packages and repos ---
@@ -179,7 +179,8 @@ CHISEL_SRC_DIRS = \
   generators/riscv-boom/src/main \
   generators/sifive-cache/design/craft \
   generators/testchipip/src/main \
-  generators/fft-generator/src/main \ 
+  generators/fft-generator/src/main \
+  generators/sha3/src/main \
 
   
 CHISEL_SRC := $(foreach path, $(CHISEL_SRC_DIRS), $(shell test -d $(path) && find $(path) -iname "*.scala"))
@@ -345,3 +346,26 @@ jtag-boot: $(bitstream) linux-stable/arch/riscv/boot/Image debian-riscv64/ramdis
 
 vivado-gui: $(proj_time)
 	vivado $(proj_file)
+
+
+# --- Chisel to Verilog Conversion(2024.12.03 update) ---
+.PHONY: chisel2verilog
+CHISEL_CONFIG := Rocket64x1sha3
+CHISEL_OUTPUT_DIR := chisel2verilog
+chisel2verilog: $(CHISEL_SRC)
+	cp rocket-chip/bootrom/bootrom.img workspace/bootrom.img
+	@echo "Generating Verilog for $(CHISEL_CONFIG) without peripheral dependencies..."
+	mkdir -p $(CHISEL_OUTPUT_DIR)
+	$(SBT) "runMain freechips.rocketchip.system.Generator -td $(CHISEL_OUTPUT_DIR) -T Vivado.RocketSystem -C Vivado.$(CHISEL_CONFIG)"
+	$(FIRRTL) -i $(CHISEL_OUTPUT_DIR)/Vivado.$(CHISEL_CONFIG).fir -o $(CHISEL_OUTPUT_DIR)/system.v -X verilog --infer-rw RocketSystem --repl-seq-mem \
+	  -c:RocketSystem:-o:`realpath $(CHISEL_OUTPUT_DIR)/system.conf` \
+	  -faf `realpath $(CHISEL_OUTPUT_DIR)/Vivado.$(CHISEL_CONFIG).anno.json` \
+	  -td $(CHISEL_OUTPUT_DIR)/ \
+	  -fct firrtl.passes.InlineInstances
+	@echo "Verilog generation complete: $(CHISEL_OUTPUT_DIR)/system.v"
+
+
+
+
+
+		

@@ -1,0 +1,4 @@
+#define PLUSARG_USAGE_OPTIONS "EMULATOR VERILOG PLUSARGS\n\
+"
+static const char * verilog_plusargs [] = {\
+                                            0};
