@@ -12,6 +12,8 @@
 
 #define SHA3_256_DIGEST_SIZE (256 / 8)
 
+pthread_barrier_t barrier;
+
 // Input and output buffers for the accelerators
 unsigned char input1[150] __aligned(8) = { '\0' };
 unsigned char output1[SHA3_256_DIGEST_SIZE] __aligned(8);
@@ -27,22 +29,17 @@ static inline uint64_t cpucycles(void) {
   return result;
 }
 
-pthread_barrier_t barrier;
 
 void* sha3_accelerator1(void* arg) {
-  pthread_barrier_wait(&barrier); // Wait for both threads to be ready
-
+  
   int cpu = sched_getcpu();
   printf("Accelerator 1: Starting on CPU %d\n", cpu);
 
   unsigned long start1, end1;
   start1 = rdcycle();
+  pthread_barrier_wait(&barrier); // Wait for both threads to be ready
   // Using accelerator 1 (opcode: 2)
-  ROCC_INSTRUCTION(2,2);
-  asm volatile("fence rw,rw" ::: "memory");
-  ROCC_INSTRUCTION_SS(2, &input1, &output1, 0); // Set input and output
-  ROCC_INSTRUCTION_S(2, sizeof(input1), 1);     // Set length and start computation
-  asm volatile("fence" ::: "memory");
+  sha3ONE(input1, sizeof(input1), output1);
   end1 = rdcycle();
   printf("Accelerator 1: Finished. Cycles taken: %lu\n", end1 - start1);
   printf("Thread 1 execution: Start cycle: %lu, End cycle: %lu\n", start1, end1);
@@ -50,19 +47,15 @@ void* sha3_accelerator1(void* arg) {
 }
 
 void* sha3_accelerator2(void* arg) {
-  pthread_barrier_wait(&barrier); // Wait for both threads to be ready
-
+  
   int cpu = sched_getcpu();
   printf("Accelerator 2: Starting on CPU %d\n", cpu);
 
   unsigned long start2, end2;
   start2 = rdcycle();
+  pthread_barrier_wait(&barrier); // Wait for both threads to be ready
   // Using accelerator 2 (opcode: 3)
-  ROCC_INSTRUCTION(3,2);
-  asm volatile("fence rw,rw" ::: "memory");
-  ROCC_INSTRUCTION_SS(3, &input2, &output2, 0); // Set input and output
-  ROCC_INSTRUCTION_S(3, sizeof(input2), 1);     // Set length and start computation
-  asm volatile("fence" ::: "memory");
+  sha3ONE(input2, sizeof(input2), output2);
   end2 = rdcycle();
   printf("Accelerator 2: Finished. Cycles taken: %lu\n", end2 - start2);
   printf("Thread 2 execution: Start cycle: %lu, End cycle: %lu\n", start2, end2);
@@ -72,8 +65,7 @@ void* sha3_accelerator2(void* arg) {
 int main() {
   pthread_t thread1, thread2;
   cpu_set_t cpuset1, cpuset2;
-
-  // Initialize barrier for 2 threads
+  
   if (pthread_barrier_init(&barrier, NULL, 2) != 0) {
     perror("Failed to initialize barrier");
     return EXIT_FAILURE;
@@ -86,7 +78,8 @@ int main() {
   // Configure CPU affinity for thread2 to CPU 1
   CPU_ZERO(&cpuset2);
   CPU_SET(1, &cpuset2);
-
+  unsigned long start, end;
+  //start = rdcycle();
   // Start thread1 and bind to CPU 0
   if (pthread_create(&thread1, NULL, sha3_accelerator1, NULL) != 0) {
     perror("Failed to create thread 1");
@@ -106,12 +99,12 @@ int main() {
     perror("Failed to set thread 2 affinity");
     return EXIT_FAILURE;
   }
-
+  //end = rdcycle();
   // Wait for both threads to complete
   pthread_join(thread1, NULL);
   pthread_join(thread2, NULL);
 
-  // Destroy the barrier
+    // Destroy the barrier
   pthread_barrier_destroy(&barrier);
 
   // Print results
@@ -120,5 +113,6 @@ int main() {
     printf("output1[%d]:%d ==? output2[%d]:%d \n", i, output1[i], i, output2[i]);
   }
   printf("\n");
+  //printf("Total Accelerator Cycles taken: %lu\n", end - start);
   return 0;
 }

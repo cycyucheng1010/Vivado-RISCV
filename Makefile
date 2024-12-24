@@ -12,7 +12,7 @@ MAX_THREADS ?= 16
 MEMORY_SIZE ?= 0x40000000
 
 # valid ROCKET_FREQ_MHZ values (MHz): 160 125 100 80 62.5 50 40 31.25 25 2
-ROCKET_FREQ_MHZ ?=50
+ROCKET_FREQ_MHZ ?=80
 include board/$(BOARD)/Makefile.inc
 
 # --- packages and repos ---
