@@ -14,7 +14,7 @@ void shake_init(sha3_state *sctx, int security_level) {
         sctx->rsiz = 200 - 2 * (256 / 8);
     } 
     else {
-        fprintf(stderr, "Invalid security level for SHAKE: %d\n", security_level);
+        //fprintf(stderr, "Invalid security level for SHAKE: %d\n", security_level);
         return;
     }
     sctx->md_len = 0; // No fixed digest size for XOF

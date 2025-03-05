@@ -429,41 +429,10 @@ class Rocket64b1fft256 extends Config(
 )
 
 class Rocket64b1sha3 extends Config(
-  new WithSha3Accel ++
+  new WithSha3Accel ++ // 2024.01.07, 3 SHA3 RoCC Accelerator 
   new WithInclusiveCache ++
   new WithNBreakpoints(8) ++
   new WithNBigCores(1) ++
   new RocketWideBusConfig
 )
 
-class Rocket64x1sha3 extends Config(
-  new WithSha3Accel ++
-  new WithInclusiveCache  ++
-  new WithNBreakpoints(8) ++
-  new boom.common.WithNMediumBooms(1) ++
-  new RocketWideBusConfig
-)
-
-class Rocket64b1TwoSha3 extends Config(
-  new WithTwoSha3Accel ++
-  new WithInclusiveCache  ++
-  new WithNBreakpoints(8) ++
-  new WithNBigCores(1) ++
-  new RocketWideBusConfig
-)
-
-class Rocket64x1TwoSha3 extends Config(
-  new WithTwoSha3Accel ++
-  new WithInclusiveCache  ++
-  new WithNBreakpoints(8) ++
-  new boom.common.WithNMediumBooms(1) ++
-  new RocketWideBusConfig
-)
-
-class Rocket64b2TwoSha3 extends Config(
-  new WithTwoSha3Accel ++        // 使用兩個SHA3加速器 (custom2, custom3)
-  new WithInclusiveCache ++       // 使用L2快取 (如有需要可依需求調整)
-  new WithNBreakpoints(8) ++      // Breakpoints數量 (可視需求增減)
-  new WithNBigCores(2) ++         // 雙核心Rocket Big Cores
-  new RocketWideBusConfig          // 設定寬頻存取匯流排 (可依需求更改)
-)

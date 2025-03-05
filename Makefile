@@ -5,14 +5,14 @@ include workspace/config
 endif
 #genesys2 or vc707 for test 
 BOARD ?= genesys2
-CONFIG ?= Rocket64b2TwoSha3
+CONFIG ?= Rocket64b1sha3
 HW_SERVER_ADDR ?= localhost:3121
 JAVA_OPTIONS ?=
 MAX_THREADS ?= 16
 MEMORY_SIZE ?= 0x40000000
 
 # valid ROCKET_FREQ_MHZ values (MHz): 160 125 100 80 62.5 50 40 31.25 25 2
-ROCKET_FREQ_MHZ ?=80
+ROCKET_FREQ_MHZ ?=100
 include board/$(BOARD)/Makefile.inc
 
 # --- packages and repos ---

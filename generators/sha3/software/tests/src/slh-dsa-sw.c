@@ -1693,10 +1693,10 @@ int main() {
     uint8_t randomizer[param->n]; // 隨機數列
     size_t siglen;
 
-    printf("Public Key Size (Bytes): %zu\n", 2 * param->n);
-    printf("Private Key Size (Bytes): %zu\n", 4 * param->n);
+    printf("Public Key Size (Bytes): %u\n", 2 * param->n);
+    printf("Private Key Size (Bytes): %u\n", 4 * param->n);
     size_t sig_size = slh_sig_sz(param);
-    printf("Signature Size (Bytes): %zu\n", sig_size);
+    printf("Signature Size (Bytes): %lu\n", sig_size);
 
     // 1. 金鑰生成
     printf("\n========== 1. Key Generation ==========\n");

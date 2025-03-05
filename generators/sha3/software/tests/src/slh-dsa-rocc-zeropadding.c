@@ -2,13 +2,14 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "plat_local.h"
-#include "sha3_api.h"
-#include "slh_dsa.h"
-#include "slh_ctx.h"
-#include "slh_adrs.h"
-#include "kat_drbg.h"
-#include "encoding.h"
+#include "slh-dsa/plat_local.h"
+#include "slh-dsa/sha3_api.h"
+#include "slh-dsa/slh_dsa.h"
+#include "slh-dsa/slh_ctx.h"
+#include "slh-dsa/slh_adrs.h"
+#include "slh-dsa/kat_drbg.h"
+#include "slh-dsa/rocc.h"
+#include "slh-dsa/encoding.h"
 
 
 
@@ -914,34 +915,22 @@ void aes256ctr_xof(aes256_ctr_drbg_t *ctx, uint8_t *x, size_t xlen)
 
 // 替換原本的 Shake256 xof輸出函数
 void sha3_256_xof(const uint8_t *input, size_t input_len, uint8_t *output, size_t output_len) {
-    uint8_t counter[4] = {0};  // 計數器
-    uint8_t hash[32];          // 單次 SHA3-256 的輸出
-    size_t generated = 0;      // 已生成的輸出長度
-    size_t i;
+    uint8_t intermediate_hash[32] __attribute__((aligned(8)));
+    size_t new_input_len = input_len + 4;
 
-    while (generated < output_len) {
-        // 拼接輸入和計數器
-        uint8_t *full_input = malloc(input_len + sizeof(counter));
-        if (!full_input) {
-            fprintf(stderr, "Memory allocation failed\n");
-            return;
-        }
-        memcpy(full_input, input, input_len);
-        memcpy(full_input + input_len, counter, sizeof(counter));
+    // 使用堆疊緩衝區替代 posix_memalign
+    uint8_t aligned_input[new_input_len] __attribute__((aligned(8)));
+    memcpy(aligned_input, input, input_len);
+    memset(aligned_input + input_len, 0, 4);
 
-        // 一次性計算 SHA3-256
-        sha3(hash, 32, full_input, input_len + sizeof(counter));
-        free(full_input);
+    // 呼叫 sha3 計算 SHA3-256 的雜湊值
+    sha3(intermediate_hash, 32, aligned_input, new_input_len);
 
-        // 複製輸出
-        size_t to_copy = (output_len - generated < 32) ? (output_len - generated) : 32;
-        memcpy(output + generated, hash, to_copy);
-        generated += to_copy;
-
-        // 增加計數器
-        for (i = 0; i < sizeof(counter); i++) {
-            if (++counter[i] != 0) break;
-        }
+    // 複製 SHA3 輸出到 output
+    size_t to_copy = (output_len < 32) ? output_len : 32;
+    memcpy(output, intermediate_hash, to_copy);
+    if (output_len > 32) {
+        memset(output + 32, 0, output_len - 32);
     }
 }
 
@@ -1278,14 +1267,29 @@ void sha3_final(sha3_ctx_t *c, uint8_t *md)
 
 void *sha3(uint8_t *md, int mdlen, const void *in, size_t inlen)
 {
-    sha3_ctx_t sha3;
+    // sha3_ctx_t sha3;
 
-    sha3_init(&sha3, mdlen);
-    sha3_update(&sha3, in, inlen);
-    sha3_final(&sha3, md);
+    // sha3_init(&sha3, mdlen);
+    // sha3_update(&sha3, in, inlen);
+    // sha3_final(&sha3, md);
 
+    // return md;
+    // 確保硬體加速器能夠正常運行，使用 `fence` 指令來防止指令重排
+    asm volatile ("fence");
+
+    // 設定加速器的輸入和輸出地址
+    // 使用ROCC_INSTRUCTION_SS 來設定 input 和 output 指標給加速器
+    ROCC_INSTRUCTION_SS(2, in, md, 0);
+
+    // 指定要處理的輸入長度，並開始計算
+    // 使用ROCC_INSTRUCTION_S 來傳入數據長度
+    ROCC_INSTRUCTION_S(2, inlen, 1);
+
+    // 再次使用 fence 確保計算完成後再讀取數據
+    asm volatile ("fence" ::: "memory");
+
+    // 確保輸出結果與原來的軟體接口保持一致
     return md;
-    
 }
 
 //  SHAKE128 and SHAKE256 extensible-output functionality
@@ -1520,10 +1524,10 @@ int main() {
     uint8_t randomizer[param->n]; // 隨機數列
     size_t siglen;
 
-    printf("Public Key Size (Bytes): %zu\n", 2 * param->n);
-    printf("Private Key Size (Bytes): %zu\n", 4 * param->n);
+    printf("Public Key Size (Bytes): %u\n", 2 * param->n);
+    printf("Private Key Size (Bytes): %u\n", 4 * param->n);
     size_t sig_size = slh_sig_sz(param);
-    printf("Signature Size (Bytes): %zu\n", sig_size);
+    printf("Signature Size (Bytes): %lu\n", sig_size);
 
     // 1. 金鑰生成
     printf("\n========== 1. Key Generation ==========\n");

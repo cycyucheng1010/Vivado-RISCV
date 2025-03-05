@@ -40,7 +40,7 @@ void* sha3_accelerator(void* arg) {
   struct sha3_params* params = (struct sha3_params*)arg;
 
   int cpu = sched_getcpu();
-  printf("Accelerator %d: Starting on CPU %d\n", params->accelerator_id, cpu);
+  printf("Accelerator %d: Starting on CPU %d\n", params->accelerator_id-1, cpu);
 
   pthread_barrier_wait(&barrier); // Wait for both threads to be ready
   uint64_t start = rdtime();//cpucycles();
@@ -55,8 +55,8 @@ void* sha3_accelerator(void* arg) {
     perror("opcode error");
   }
   uint64_t end = rdtime();//cpucycles();
-  printf("Accelerator %d: Finished. Cycles taken: %lu\n", params->accelerator_id, end - start);
-  printf("Thread %d execution: Start cycle: %lu, End cycle: %lu\n", params->accelerator_id, start, end);
+  printf("Accelerator %d: Finished. machine time taken: %lu\n", params->accelerator_id-1, end - start);
+  printf("Accelerator %d execution: Start machine time: %lu, End machine time: %lu\n", params->accelerator_id-1, start, end);
   return NULL;
 }
 

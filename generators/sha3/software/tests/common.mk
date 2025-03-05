@@ -1,8 +1,8 @@
 basedir := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 srcdir := $(basedir)/src
+vpath %.c $(srcdir) $(srcdir)/sha3-64 $(srcdir)/sha3
 
-PROGRAMS ?= sha3-sw sha3-rocc sha3-rocc-test slh-dsa-rocc slh-dsa-sw 
-
+PROGRAMS ?= sha3-sw sha3-rocc sha3-rocc-test slh-dsa-rocc slh-dsa-sw  slh-dsa-rocc-64 slh-dsa-rocc-zeropadding
 CC := $(TARGET)-gcc
 OBJDUMP := $(TARGET)-objdump
 

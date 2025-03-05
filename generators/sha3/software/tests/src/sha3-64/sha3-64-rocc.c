@@ -6,10 +6,10 @@
 
 #include <stdio.h>
 #include <stdint.h>
-#include "include/sha3/sha3.h"
-#include "include/sha3/rocc.h"
-#include "include/sha3/encoding.h"
-#include "include/sha3/compiler.h"
+#include "../include/sha3/rocc.h"
+#include "../include/sha3/sha3-output64.h"
+#include "../include/sha3/encoding.h"
+#include "../include/sha3/compiler.h"
 
 #ifdef __linux
 #include <sys/mman.h>
@@ -33,7 +33,7 @@ int main() {
 
     // Setup some test data
     static unsigned char input[150] __aligned(8) = { '\0' };
-    unsigned char output[SHA3_256_DIGEST_SIZE] __aligned(8);
+    unsigned char output[64] __aligned(8);
 
     start = rdcycle();
 
@@ -56,14 +56,18 @@ int main() {
 
     // Check result
     int i;
-    static const unsigned char result[SHA3_256_DIGEST_SIZE] =
+    static const unsigned char result[64] =
 #ifdef KECCAK
     {221,204,157,217,67,211,86,31,54,168,44,245,97,194,193,26,234,42,135,166,66,134,39,174,184,61,3,149,137,42,57,238};
 #else /* FIPS 202 */
-    {203,52,27,85,46,79,152,228,86,138,201,206,253,168,255,107,122,177,65,68,231,19,70,198,64,90,192,80,206,234,168,159};
+  {211, 249, 118, 142, 221, 94, 103, 158, 208, 75, 72, 129, 47, 14, 178, 138,
+    81, 90, 200, 235, 53, 184, 224, 102, 220, 73, 195, 12, 103, 154, 23, 15,
+    106, 140, 70, 104, 178, 200, 101, 100, 47, 23, 84, 74, 15, 61, 148, 184,
+    52, 26, 50, 122, 81, 243, 138, 208, 90, 91, 25, 126, 141, 27, 188, 52
+  };
 #endif
     //sha3ONE(input, sizeof(input), result);
-    for(i = 0; i < SHA3_256_DIGEST_SIZE; i++){
+    for(i = 0; i < 64; i++){
       printf("output[%d]:%d ==? results[%d]:%d \n",i,output[i],i,result[i]);
       if(output[i] != result[i]) {
         printf("Failed: Outputs don't match!\n");

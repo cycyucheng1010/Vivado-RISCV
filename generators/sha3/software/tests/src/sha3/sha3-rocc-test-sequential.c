@@ -33,14 +33,14 @@ void* sha3_accelerator1(void* arg) {
   printf("Accelerator 1: Starting on CPU %d\n", cpu);
 
   unsigned long start1, end1;
-  start1 = rdcycle();
+  start1 = rdtime();
   // Using accelerator 1 (opcode: 2)
   ROCC_INSTRUCTION(2,2);
   asm volatile("fence rw,rw" ::: "memory");
   ROCC_INSTRUCTION_SS(2, &input1, &output1, 0); // Set input and output
   ROCC_INSTRUCTION_S(2, sizeof(input1), 1);     // Set length and start computation
   asm volatile("fence" ::: "memory");
-  end1 = rdcycle();
+  end1 = rdtime();
   printf("Accelerator 1: Finished. Cycles taken: %lu\n", end1 - start1);
   printf("Thread 1 execution: Start cycle: %lu, End cycle: %lu\n", start1, end1);
   return NULL;
@@ -51,14 +51,14 @@ void* sha3_accelerator2(void* arg) {
   printf("Accelerator 2: Starting on CPU %d\n", cpu);
 
   unsigned long start2, end2;
-  start2 = rdcycle();
+  start2 = rdtime();
   // Using accelerator 2 (opcode: 3)
   ROCC_INSTRUCTION(3,2);
   asm volatile("fence rw,rw" ::: "memory");
   ROCC_INSTRUCTION_SS(3, &input2, &output2, 0); // Set input and output
   ROCC_INSTRUCTION_S(3, sizeof(input2), 1);     // Set length and start computation
   asm volatile("fence" ::: "memory");
-  end2 = rdcycle();
+  end2 = rdtime();
   printf("Accelerator 2: Finished. Cycles taken: %lu\n", end2 - start2);
   printf("Thread 2 execution: Start cycle: %lu, End cycle: %lu\n", start2, end2);
   return NULL;
